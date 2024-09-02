@@ -1,0 +1,51 @@
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    font-family: Arial, sans-serif;
+}
+
+#map {
+    height: 80%; /* Ensure the map container has height */
+    width: 100%; /* Ensure the map container has width */
+}
+
+#controls {
+    padding: 10px;
+    background: #fff;
+    border-bottom: 1px solid #ccc;
+}
+
+#search {
+    padding: 5px;
+    margin-right: 10px;
+    width: 200px;
+}
+
+#login {
+    padding: 10px;
+    background: #fff;
+    border: 1px solid #ccc;
+    width: 300px;
+    margin: 20px auto;
+    text-align: center;
+}
+
+input[type="text"], input[type="password"] {
+    padding: 5px;
+    margin: 5px 0;
+    width: 100%;
+}
+
+button {
+    padding: 5px 10px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
