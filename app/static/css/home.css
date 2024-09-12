@@ -1,0 +1,39 @@
+/* Ensure the body does not overflow */
+body, html {
+    margin: 0;
+    padding: 0;
+    overflow: hidden; /* Prevent scrolling */
+    height: 100%;     /* Make sure body height is 100% of the viewport */
+}
+
+/* Set background image for the home screen */
+.background-container {
+    background-image: url('../images/home_screen.png'); /* Path to your image */
+    background-size: cover;    /* Ensure the image covers the entire screen */
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Prevent repeating */
+    width: 100vw;  /* Full width of the viewport */
+    height: 100vh; /* Full height of the viewport */
+    display: flex;
+    justify-content: center; /* Horizontally center the button */
+    align-items: center;     /* Vertically center the button */
+}
+
+/* Style the start button */
+.start-button {
+    padding: 20px 50px; /* Bigger padding for a larger button */
+    font-size: 24px; /* Increase the font size */
+    color: rgba(255, 255, 255, 0.9); /* White-ish color */
+    background-color: rgba(255, 255, 255, 0.3); /* Semi-transparent white background */
+    border: 2px solid rgba(255, 255, 255, 0.8); /* White border */
+    border-radius: 12px; /* Rounded corners */
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    font-weight: bold; /* Bold text */
+}
+
+
+/* Hover effect for the button */
+.start-button:hover {
+    background-color: rgba(0, 0, 0, 0.9);
+}

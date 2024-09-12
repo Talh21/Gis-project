@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MatchMap</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <!-- Sidebar for filtering options -->
+        <div class="sidebar">
+            <h2>Filter Matches</h2>
+            <label for="startDate">Start Date:</label>
+            <input type="date" id="startDate" name="startDate" min="2024-09-09">
+
+            <label for="endDate">End Date:</label>
+            <input type="date" id="endDate" name="endDate" min="2024-09-09">
+
+            <label for="city">City:</label>
+            <input type="text" id="city" placeholder="Enter city name">
+
+            <label for="team">Team:</label>
+            <input type="text" id="team" placeholder="Enter team name">
+
+            <button id="filterBtn">Filter Matches</button>
+        </div>
+
+        <!-- Map container -->
+        <div id="map"></div>
+    </div>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to MatchMap</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/home.css') }}">
+</head>
+<body>
+    <div class="background-container"> <!-- Use background-container class here -->
+        <button class="start-button" onclick="startApp()">Start App</button> <!-- Use start-button class here -->
+    </div>
+
+    <script>
+        function startApp() {
+            window.location.href = "{{ url_for('main.matchmap') }}";
+        }
+    </script>
+</body>
+</html>

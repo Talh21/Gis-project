@@ -1,0 +1,76 @@
+/* General page layout */
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    font-family: 'Roboto', sans-serif; /* You can change the font for a more modern look */
+}
+
+/* Flex container for sidebar and map */
+.container {
+    display: flex;
+    height: 100vh;
+}
+
+/* Sidebar styling with gradient background */
+.sidebar {
+    width: 300px;
+    background: linear-gradient(135deg, #ff6f61, #de4463); /* Gradient background */
+    padding: 20px;
+    color: white; /* Text color */
+    box-shadow: 2px 0px 10px rgba(0, 0, 0, 0.2); /* Slightly darker shadow */
+    font-weight: bold; /* Make sidebar text bold for better contrast */
+}
+
+.sidebar h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #ffebcd; /* Light contrasting color for headings */
+}
+
+.sidebar label {
+    display: block;
+    margin-top: 10px;
+    font-weight: bold;
+    color: #ffebcd; /* Slightly off-white color */
+}
+
+.sidebar input {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: 1px solid #fff;
+    background-color: rgba(255, 255, 255, 0.2); /* Light transparent input background */
+    color: #fff;
+}
+
+.sidebar input::placeholder {
+    color: #ffe4e1; /* Soft placeholder text color */
+}
+
+/* Button with gradient and bold hover */
+button {
+    width: 100%;
+    padding: 12px;
+    background: linear-gradient(135deg, #36d1dc, #5b86e5); /* Gradient for button */
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Add transition for hover effect */
+}
+
+button:hover {
+    background: linear-gradient(135deg, #5b86e5, #36d1dc); /* Invert gradient on hover */
+    transform: translateY(-3px); /* Lift effect on hover */
+}
+
+/* Map container */
+#map {
+    flex-grow: 1;
+    height: 100vh;
+}
