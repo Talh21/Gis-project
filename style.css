@@ -1,3 +1,4 @@
+/* General page layout */
 body {
     margin: 0;
     padding: 0;
@@ -5,47 +6,55 @@ body {
     font-family: Arial, sans-serif;
 }
 
-#map {
-    height: 80%; /* Ensure the map container has height */
-    width: 100%; /* Ensure the map container has width */
+.container {
+    display: flex;
+    height: 100vh;
 }
 
-#controls {
-    padding: 10px;
-    background: #fff;
-    border-bottom: 1px solid #ccc;
-}
-
-#search {
-    padding: 5px;
-    margin-right: 10px;
-    width: 200px;
-}
-
-#login {
-    padding: 10px;
-    background: #fff;
-    border: 1px solid #ccc;
+/* Sidebar styling */
+.sidebar {
     width: 300px;
-    margin: 20px auto;
-    text-align: center;
+    background-color: #f8f9fa;
+    padding: 20px;
+    box-shadow: 2px 0px 5px rgba(0, 0, 0, 0.1);
 }
 
-input[type="text"], input[type="password"] {
-    padding: 5px;
-    margin: 5px 0;
+.sidebar h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.sidebar label {
+    display: block;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+.sidebar input {
     width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
 }
 
 button {
-    padding: 5px 10px;
-    background-color: #007BFF;
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
     color: white;
     border: none;
-    border-radius: 3px;
+    border-radius: 5px;
     cursor: pointer;
 }
 
 button:hover {
     background-color: #0056b3;
+}
+
+/* Map container */
+#map {
+    flex-grow: 1;
+    height: 100vh;
 }

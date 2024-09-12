@@ -3,30 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Football Match Map</title>
+    <title>MatchMap</title>
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-    <style>
-        #map {
-            height: 600px;
-            width: 100%;
-        }
-        .controls {
-            margin: 10px;
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-   <div>
-        <label for="startDate">Start Date:</label>
-        <input type="date" id="startDate" name="startDate" min="2024-09-09">
+    <div class="container">
+        <!-- Sidebar for filtering options -->
+        <div class="sidebar">
+            <h2>Filter Matches</h2>
+            <label for="startDate">Start Date:</label>
+            <input type="date" id="startDate" name="startDate" min="2024-09-09">
 
-        <label for="endDate">End Date:</label>
-        <input type="date" id="endDate" name="endDate" min="2024-09-09">
+            <label for="endDate">End Date:</label>
+            <input type="date" id="endDate" name="endDate" min="2024-09-09">
 
-        <button id="filterBtn">Filter Matches</button>
+            <label for="city">City:</label>
+            <input type="text" id="city" placeholder="Enter city name">
+
+            <label for="team">Team:</label>
+            <input type="text" id="team" placeholder="Enter team name">
+
+            <button id="filterBtn">Filter Matches</button>
+        </div>
+
+        <!-- Map container -->
+        <div id="map"></div>
     </div>
-
-    <div id="map" style="height: 500px;"></div>
 
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
