@@ -32,9 +32,8 @@ function initializeCoordDict(callback) {
 function initMap() {
     const map = L.map('map').setView([32.0853, 34.7818], 8); 
     window.map = map;
-
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        attribution: '© OpenStreetMap contributors'
+        
     }).addTo(map);
 
 
@@ -135,7 +134,6 @@ function createPopupContent(matches) {
     return content;
 }
 
-// Initialize on window load
 window.onload = () => {
     initializeCoordDict(initMap);
 };

@@ -79,12 +79,11 @@ def process_match(match):
     html = fetch(match['PreviewURL'])
     day, date, match_time, stadium = parse_match_details(html)
 
-    # Check if the home team is Hapoel Be'er Sheva and stadium is missing
-    if "Hapoel Be'er Sheva" in match['Match'].split(' vs ')[0] and stadium == 'N/A':
-        stadium = "Turner Stadium"
-        city = "Be'er Sheva"
-    else:
-        city = extract_and_clean_city_name(stadium)
+    if "Hapoel Be'er Sheva" in match['Match'].split(' vs ')[0]:
+        stadium = "Turner Stadium (Be'er Sheva)"
+        #city = "Be'er Sheva"
+    
+    city = extract_and_clean_city_name(stadium)
 
     match.update({'Day': day, 'Date': date, 'Time': match_time, 'Stadium': stadium, 'City': city})
     return match
