@@ -3,15 +3,19 @@ function initializeCoordDict(callback) {
     const primaryDict = {};
     const cityDict = {};
 
-    Papa.parse('/static/data/stadium_coordinates.csv', {
-        download: true,
-        header: true,
-        complete: (results) => {
-            results.data.forEach(row => {
-                const stadiumName = row.Stadium ? row.Stadium.toLowerCase() : '';
-                const cityName = row.City ? row.City.toLowerCase() : '';
-                const lat = parseFloat(row.Latitude);
-                const lng = parseFloat(row.Longitude);
+    fetch('/api/stadium-coordinates')
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`HTTP error! Status: ${response.status}`);
+            }
+            return response.json();
+        })
+        .then(data => {
+            data.forEach(row => {
+                const stadiumName = row.stadium ? row.stadium.toLowerCase().trim() : '';
+                const cityName = row.city ? row.city.toLowerCase().trim() : '';
+                const lat = parseFloat(row.latitude);
+                const lng = parseFloat(row.longitude);
 
                 if (stadiumName && !isNaN(lat) && !isNaN(lng)) {
                     primaryDict[stadiumName] = [lat, lng];
@@ -23,55 +27,60 @@ function initializeCoordDict(callback) {
 
             window.coordDict = { primary: primaryDict, city: cityDict };
             if (callback) callback();
-        },
-        error: (error) => console.error('Error loading coordinates CSV:', error)
-    });
+        })
+        .catch(error => console.error('Error fetching coordinates:', error));
 }
 
 // Initialize Leaflet map
 function initMap() {
-    const map = L.map('map').setView([32.0853, 34.7818], 8); 
+    const map = L.map('map').setView([32.0853, 34.7818], 8);
     window.map = map;
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        
-    }).addTo(map);
 
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {}).addTo(map);
 
-    Papa.parse('/static/data/Ligat_HaAl_Fixtures.csv', {
-        download: true,
-        header: true,
-        complete: (results) => {
-            const matches = results.data;
-
+    fetch('/api/matches')
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`HTTP error! Status: ${response.status}`);
+            }
+            return response.json();
+        })
+        .then(matches => {
             if (!window.coordDict) {
                 console.error('Coordinates dictionary is not initialized.');
                 return;
             }
 
-            document.getElementById('filterBtn').addEventListener('click', () => {
+            const filterBtn = document.getElementById('filterBtn');
+            if (!filterBtn) {
+                console.error('Filter button not found.');
+                return;
+            }
+
+            filterBtn.addEventListener('click', () => {
                 filterMatchesAndDisplay(map, matches);
             });
-        },
-        error: (error) => console.error('Error loading matches CSV:', error)
-    });
+        })
+        .catch(error => console.error('Error fetching matches:', error));
 }
 
 // Function to filter matches by date, city, or team
 function filterMatchesAndDisplay(map, matches) {
     const startDate = new Date(document.getElementById('startDate').value);
     const endDate = new Date(document.getElementById('endDate').value);
-    const city = document.getElementById('city').value.toLowerCase();
-    const team = document.getElementById('team').value.toLowerCase();
+    const city = document.getElementById('city').value.toLowerCase().trim();
+    const team = document.getElementById('team').value.toLowerCase().trim();
 
     const filteredMatches = matches.filter(match => {
-        const matchDate = new Date(match.Date);
-        const matchCity = match.City ? match.City.toLowerCase() : '';
-        const matchTeam = match.Match ? match.Match.toLowerCase() : '';
+        const matchDate = new Date(match.date);
+        const matchCity = match.city ? match.city.toLowerCase().trim() : '';
+        const homeTeam = match.home_team ? match.home_team.toLowerCase().trim() : '';
+        const awayTeam = match.away_team ? match.away_team.toLowerCase().trim() : '';
 
         return (isNaN(startDate) || matchDate >= startDate) &&
                (isNaN(endDate) || matchDate <= endDate) &&
                (city === '' || matchCity.includes(city)) &&
-               (team === '' || matchTeam.includes(team));
+               (team === '' || homeTeam.includes(team) || awayTeam.includes(team));
     });
 
     const groupedMatches = groupMatchesByStadium(filteredMatches);
@@ -81,7 +90,7 @@ function filterMatchesAndDisplay(map, matches) {
 function groupMatchesByStadium(matches) {
     const grouped = {};
     matches.forEach(match => {
-        const stadiumName = match.Stadium ? match.Stadium.trim().toLowerCase() : '';
+        const stadiumName = match.stadium ? match.stadium.trim().toLowerCase() : '';
         if (!grouped[stadiumName]) {
             grouped[stadiumName] = [];
         }
@@ -99,6 +108,7 @@ function displayGroupedMatchesOnMap(map, groupedMatches) {
     const primaryDict = window.coordDict.primary || {};
     const cityDict = window.coordDict.city || {};
 
+    // Remove existing markers
     map.eachLayer(layer => {
         if (layer instanceof L.Marker) {
             map.removeLayer(layer);
@@ -108,7 +118,7 @@ function displayGroupedMatchesOnMap(map, groupedMatches) {
     const bounds = L.latLngBounds();
     Object.keys(groupedMatches).forEach(stadiumName => {
         const matches = groupedMatches[stadiumName];
-        let coords = primaryDict[stadiumName] || cityDict[matches[0].City.trim().toLowerCase()];
+        let coords = primaryDict[stadiumName] || cityDict[matches[0].city.toLowerCase().trim()];
 
         if (coords) {
             const [lat, lng] = coords;
@@ -126,9 +136,9 @@ function displayGroupedMatchesOnMap(map, groupedMatches) {
 }
 
 function createPopupContent(matches) {
-    let content = `<div><strong>Matches at ${matches[0].Stadium}:</strong><ul>`;
+    let content = `<div><strong>Matches at ${matches[0].stadium}:</strong><ul>`;
     matches.forEach(match => {
-        content += `<li>${match.Match}<br>Date: ${match.Date}<br>Time: ${match.Time}</li>`;
+        content += `<li>${match.home_team} vs ${match.away_team}<br>Date: ${match.date}<br>Time: ${match.time}</li>`;
     });
     content += '</ul></div>';
     return content;

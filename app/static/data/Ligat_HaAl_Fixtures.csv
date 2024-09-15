@@ -1,164 +1,165 @@
-Match,Day,Date,Time,Stadium,City
-Beitar Jerusalem vs Maccabi Netanya,Sunday,2024-09-15,20:15,Teddy Stadium,Jerusalem
-Beitar Jerusalem vs Maccabi Netanya,Sunday,2024-09-15,20:15,Teddy Stadium,Jerusalem
-Hapoel Hadera vs Maccabi Petah Tikva,Monday,2024-09-16,20:00,Shar-Tov Stadium,Netanya
-Maccabi Tel Aviv vs Hapoel Jerusalem,Wednesday,2024-09-18,17:30,Bloomfield Stadium,Tel Aviv
-Maccabi Netanya vs Ironi Kiryat Shmona,Saturday,2024-09-21,20:00,Shar-Tov Stadium,Netanya
-Hapoel Be'er Sheva vs Hapoel Hadera,Saturday,2024-09-21,20:30,Turner Stadium,Be'er Sheva
-Maccabi Petah Tikva vs Hapoel Haifa,Saturday,2024-09-21,20:00,HaMoshava Stadium,Petach Tikva
-Ironi Tiberias vs Bnei Sakhnin,Saturday,2024-09-21,19:30,Green Stadium,Nazareth Illit
-Hapoel Jerusalem vs Maccabi Bnei Raina,Saturday,2024-09-21,19:30,Teddy Stadium,Jerusalem
-Ashdod vs Maccabi Tel Aviv,Sunday,2024-09-22,20:15,Yud-Alef Stadium,Ashdod
-Maccabi Haifa vs Beitar Jerusalem,Monday,2024-09-23,20:30,Sammy Ofer Stadium,Haifa
-Ironi Kiryat Shmona vs Maccabi Haifa,Saturday,2024-09-28,N/A,Shar-Tov Stadium,Netanya
-Maccabi Tel Aviv vs Ironi Tiberias,Saturday,2024-09-28,N/A,Bloomfield Stadium,Tel Aviv
-Hapoel Jerusalem vs Maccabi Petah Tikva,Saturday,2024-09-28,N/A,Teddy Stadium,Jerusalem
-Maccabi Bnei Raina vs Beitar Jerusalem,Saturday,2024-09-28,N/A,Green Stadium,Nazareth Illit
-Hapoel Hadera vs Ashdod,Saturday,2024-09-28,N/A,Shar-Tov Stadium,Netanya
-Bnei Sakhnin vs Maccabi Netanya,Saturday,2024-09-28,N/A,Doha Stadium,Sakhnin
-Hapoel Haifa vs Hapoel Be'er Sheva,Saturday,2024-09-28,N/A,Sammy Ofer Stadium,Haifa
-Maccabi Petah Tikva vs Maccabi Bnei Raina,Saturday,2024-10-05,N/A,HaMoshava Stadium,Petach Tikva
-Ashdod vs Hapoel Haifa,Saturday,2024-10-05,N/A,Yud-Alef Stadium,Ashdod
-Maccabi Netanya vs Maccabi Tel Aviv,Saturday,2024-10-05,N/A,Shar-Tov Stadium,Netanya
-Hapoel Be'er Sheva vs Hapoel Jerusalem,Saturday,2024-10-05,N/A,Turner Stadium,Be'er Sheva
-Maccabi Haifa vs Bnei Sakhnin,Saturday,2024-10-05,N/A,Sammy Ofer Stadium,Haifa
-Beitar Jerusalem vs Ironi Kiryat Shmona,Saturday,2024-10-05,N/A,Teddy Stadium,Jerusalem
-Ironi Tiberias vs Hapoel Hadera,Saturday,2024-10-05,N/A,Tiberias Municipal Stadium,Tiberias
-Maccabi Bnei Raina vs Ironi Kiryat Shmona,Saturday,2024-10-19,N/A,Green Stadium,Nazareth Illit
-Hapoel Jerusalem vs Ashdod,Saturday,2024-10-19,N/A,Teddy Stadium,Jerusalem
-Maccabi Tel Aviv vs Maccabi Haifa,Saturday,2024-10-19,N/A,Bloomfield Stadium,Tel Aviv
-Hapoel Hadera vs Maccabi Netanya,Saturday,2024-10-19,N/A,Shar-Tov Stadium,Netanya
-Bnei Sakhnin vs Beitar Jerusalem,Saturday,2024-10-19,N/A,Doha Stadium,Sakhnin
-Maccabi Petah Tikva vs Hapoel Be'er Sheva,Saturday,2024-10-19,N/A,HaMoshava Stadium,Petach Tikva
-Hapoel Haifa vs Ironi Tiberias,Saturday,2024-10-19,N/A,Sammy Ofer Stadium,Haifa
-Hapoel Be'er Sheva vs Maccabi Bnei Raina,Saturday,2024-10-26,N/A,Turner Stadium,Be'er Sheva
-Maccabi Haifa vs Hapoel Hadera,Saturday,2024-10-26,N/A,Sammy Ofer Stadium,Haifa
-Ashdod vs Maccabi Petah Tikva,Saturday,2024-10-26,N/A,Yud-Alef Stadium,Ashdod
-Maccabi Netanya vs Hapoel Haifa,Saturday,2024-10-26,N/A,Shar-Tov Stadium,Netanya
-Beitar Jerusalem vs Maccabi Tel Aviv,Saturday,2024-10-26,N/A,Teddy Stadium,Jerusalem
-Ironi Tiberias vs Hapoel Jerusalem,Saturday,2024-10-26,N/A,Tiberias Municipal Stadium,Tiberias
-Hapoel Jerusalem vs Maccabi Netanya,Saturday,2024-11-02,N/A,Teddy Stadium,Jerusalem
-Hapoel Haifa vs Maccabi Haifa,Saturday,2024-11-02,N/A,Sammy Ofer Stadium,Haifa
-Hapoel Hadera vs Beitar Jerusalem,Saturday,2024-11-02,N/A,Shar-Tov Stadium,Netanya
-Hapoel Be'er Sheva vs Ashdod,Saturday,2024-11-02,N/A,Turner Stadium,Be'er Sheva
-Maccabi Tel Aviv vs Ironi Kiryat Shmona,Saturday,2024-11-02,N/A,Bloomfield Stadium,Tel Aviv
-Maccabi Petah Tikva vs Ironi Tiberias,Saturday,2024-11-02,N/A,HaMoshava Stadium,Petach Tikva
-Maccabi Bnei Raina vs Bnei Sakhnin,Saturday,2024-11-02,N/A,Green Stadium,Nazareth Illit
-Bnei Sakhnin vs Maccabi Tel Aviv,Saturday,2024-11-09,N/A,Doha Stadium,Sakhnin
-Ashdod vs Maccabi Bnei Raina,Saturday,2024-11-09,N/A,Yud-Alef Stadium,Ashdod
-Ironi Tiberias vs Hapoel Be'er Sheva,Saturday,2024-11-09,N/A,Tiberias Municipal Stadium,Tiberias
-Maccabi Netanya vs Maccabi Petah Tikva,Saturday,2024-11-09,N/A,Shar-Tov Stadium,Netanya
-Maccabi Haifa vs Hapoel Jerusalem,Saturday,2024-11-09,N/A,Sammy Ofer Stadium,Haifa
-Ironi Kiryat Shmona vs Hapoel Hadera,Saturday,2024-11-09,N/A,Kiryat-Shmona Municipal Stadium,Kiryat Shmona
-Beitar Jerusalem vs Hapoel Haifa,Saturday,2024-11-09,N/A,Teddy Stadium,Jerusalem
-Hapoel Be'er Sheva vs Maccabi Netanya,Saturday,2024-11-30,N/A,Turner Stadium,Be'er Sheva
-Maccabi Petah Tikva vs Maccabi Haifa,Saturday,2024-11-30,N/A,HaMoshava Stadium,Petach Tikva
-Hapoel Jerusalem vs Beitar Jerusalem,Saturday,2024-11-30,N/A,Teddy Stadium,Jerusalem
-Hapoel Haifa vs Ironi Kiryat Shmona,Saturday,2024-11-30,N/A,Sammy Ofer Stadium,Haifa
-Maccabi Bnei Raina vs Maccabi Tel Aviv,Saturday,2024-11-30,N/A,Green Stadium,Nazareth Illit
-Ashdod vs Ironi Tiberias,Saturday,2024-11-30,N/A,Yud-Alef Stadium,Ashdod
-Hapoel Hadera vs Bnei Sakhnin,Saturday,2024-11-30,N/A,Shar-Tov Stadium,Netanya
-Bnei Sakhnin vs Hapoel Haifa,Tuesday,2024-12-03,N/A,Doha Stadium,Sakhnin
-Ironi Kiryat Shmona vs Hapoel Jerusalem,Tuesday,2024-12-03,N/A,Kiryat-Shmona Municipal Stadium,Kiryat Shmona
-Maccabi Bnei Raina vs Ironi Tiberias,Tuesday,2024-12-03,N/A,Green Stadium,Nazareth Illit
-Maccabi Netanya vs Ashdod,Tuesday,2024-12-03,N/A,Shar-Tov Stadium,Netanya
-Beitar Jerusalem vs Maccabi Petah Tikva,Tuesday,2024-12-03,N/A,Teddy Stadium,Jerusalem
-Maccabi Tel Aviv vs Hapoel Hadera,Tuesday,2024-12-03,N/A,Bloomfield Stadium,Tel Aviv
-Maccabi Haifa vs Hapoel Be'er Sheva,Tuesday,2024-12-03,N/A,Sammy Ofer Stadium,Haifa
-Maccabi Petah Tikva vs Ironi Kiryat Shmona,Saturday,2024-12-07,N/A,HaMoshava Stadium,Petach Tikva
-Hapoel Be'er Sheva vs Beitar Jerusalem,Saturday,2024-12-07,N/A,Turner Stadium,Be'er Sheva
-Ironi Tiberias vs Maccabi Netanya,Saturday,2024-12-07,N/A,Tiberias Municipal Stadium,Tiberias
-Hapoel Haifa vs Maccabi Tel Aviv,Saturday,2024-12-07,N/A,Sammy Ofer Stadium,Haifa
-Hapoel Hadera vs Maccabi Bnei Raina,Saturday,2024-12-07,N/A,Shar-Tov Stadium,Netanya
-Hapoel Jerusalem vs Bnei Sakhnin,Saturday,2024-12-07,N/A,Teddy Stadium,Jerusalem
-Ashdod vs Maccabi Haifa,Saturday,2024-12-07,N/A,Yud-Alef Stadium,Ashdod
-Hapoel Haifa vs Hapoel Hadera,Saturday,2024-12-14,N/A,Sammy Ofer Stadium,Haifa
-Ashdod vs Beitar Jerusalem,Saturday,2024-12-14,N/A,Yud-Alef Stadium,Ashdod
-Hapoel Be'er Sheva vs Ironi Kiryat Shmona,Saturday,2024-12-14,N/A,Turner Stadium,Be'er Sheva
-Ironi Tiberias vs Maccabi Haifa,Saturday,2024-12-14,N/A,Tiberias Municipal Stadium,Tiberias
-Maccabi Netanya vs Maccabi Bnei Raina,Saturday,2024-12-14,N/A,Shar-Tov Stadium,Netanya
-Hapoel Jerusalem vs Maccabi Tel Aviv,Saturday,2024-12-14,N/A,Teddy Stadium,Jerusalem
-Maccabi Petah Tikva vs Bnei Sakhnin,Saturday,2024-12-14,N/A,HaMoshava Stadium,Petach Tikva
-Hapoel Hadera vs Hapoel Jerusalem,Saturday,2024-12-21,N/A,Shar-Tov Stadium,Netanya
-Maccabi Haifa vs Maccabi Netanya,Saturday,2024-12-21,N/A,Sammy Ofer Stadium,Haifa
-Maccabi Tel Aviv vs Maccabi Petah Tikva,Saturday,2024-12-21,N/A,Bloomfield Stadium,Tel Aviv
-Ironi Kiryat Shmona vs Ashdod,Saturday,2024-12-21,N/A,Kiryat-Shmona Municipal Stadium,Kiryat Shmona
-Beitar Jerusalem vs Ironi Tiberias,Saturday,2024-12-21,N/A,Teddy Stadium,Jerusalem
-Maccabi Bnei Raina vs Hapoel Haifa,Saturday,2024-12-21,N/A,Green Stadium,Nazareth Illit
-Bnei Sakhnin vs Hapoel Be'er Sheva,Saturday,2024-12-21,N/A,Doha Stadium,Sakhnin
-Maccabi Haifa vs Maccabi Bnei Raina,Tuesday,2024-12-31,N/A,Sammy Ofer Stadium,Haifa
-Maccabi Netanya vs Beitar Jerusalem,Tuesday,2024-12-31,N/A,Shar-Tov Stadium,Netanya
-Hapoel Be'er Sheva vs Maccabi Tel Aviv,Tuesday,2024-12-31,N/A,Turner Stadium,Be'er Sheva
-Ashdod vs Bnei Sakhnin,Tuesday,2024-12-31,N/A,Yud-Alef Stadium,Ashdod
-Ironi Tiberias vs Ironi Kiryat Shmona,Tuesday,2024-12-31,N/A,Tiberias Municipal Stadium,Tiberias
-Maccabi Petah Tikva vs Hapoel Hadera,Tuesday,2024-12-31,N/A,HaMoshava Stadium,Petach Tikva
-Hapoel Jerusalem vs Hapoel Haifa,Tuesday,2024-12-31,N/A,Teddy Stadium,Jerusalem
-Ironi Kiryat Shmona vs Maccabi Netanya,Saturday,2025-01-04,N/A,Kiryat-Shmona Municipal Stadium,Kiryat Shmona
-Bnei Sakhnin vs Ironi Tiberias,Saturday,2025-01-04,N/A,Doha Stadium,Sakhnin
-Hapoel Haifa vs Maccabi Petah Tikva,Saturday,2025-01-04,N/A,Sammy Ofer Stadium,Haifa
-Hapoel Hadera vs Hapoel Be'er Sheva,Saturday,2025-01-04,N/A,Shar-Tov Stadium,Netanya
-Beitar Jerusalem vs Maccabi Haifa,Saturday,2025-01-04,N/A,Teddy Stadium,Jerusalem
-Maccabi Tel Aviv vs Ashdod,Saturday,2025-01-04,N/A,Bloomfield Stadium,Tel Aviv
-Maccabi Bnei Raina vs Hapoel Jerusalem,Saturday,2025-01-04,N/A,Green Stadium,Nazareth Illit
-Hapoel Be'er Sheva vs Hapoel Haifa,Saturday,2025-01-11,N/A,Turner Stadium,Be'er Sheva
-Maccabi Haifa vs Ironi Kiryat Shmona,Saturday,2025-01-11,N/A,Sammy Ofer Stadium,Haifa
-Ironi Tiberias vs Maccabi Tel Aviv,Saturday,2025-01-11,N/A,Tiberias Municipal Stadium,Tiberias
-Maccabi Petah Tikva vs Hapoel Jerusalem,Saturday,2025-01-11,N/A,HaMoshava Stadium,Petach Tikva
-Maccabi Netanya vs Bnei Sakhnin,Saturday,2025-01-11,N/A,Shar-Tov Stadium,Netanya
-Ashdod vs Hapoel Hadera,Saturday,2025-01-11,N/A,Yud-Alef Stadium,Ashdod
-Bnei Sakhnin vs Maccabi Haifa,Saturday,2025-01-18,N/A,Doha Stadium,Sakhnin
-Hapoel Hadera vs Ironi Tiberias,Saturday,2025-01-18,N/A,Shar-Tov Stadium,Netanya
-Ironi Kiryat Shmona vs Beitar Jerusalem,Saturday,2025-01-18,N/A,Kiryat-Shmona Municipal Stadium,Kiryat Shmona
-Hapoel Haifa vs Ashdod,Saturday,2025-01-18,N/A,Sammy Ofer Stadium,Haifa
-Maccabi Tel Aviv vs Maccabi Netanya,Saturday,2025-01-18,N/A,Bloomfield Stadium,Tel Aviv
-Hapoel Jerusalem vs Hapoel Be'er Sheva,Saturday,2025-01-18,N/A,Teddy Stadium,Jerusalem
-Maccabi Bnei Raina vs Maccabi Petah Tikva,Saturday,2025-01-18,N/A,Green Stadium,Nazareth Illit
-Ironi Tiberias vs Hapoel Haifa,Saturday,2025-01-25,N/A,Tiberias Municipal Stadium,Tiberias
-Maccabi Netanya vs Hapoel Hadera,Saturday,2025-01-25,N/A,Shar-Tov Stadium,Netanya
-Ashdod vs Hapoel Jerusalem,Saturday,2025-01-25,N/A,Yud-Alef Stadium,Ashdod
-Ironi Kiryat Shmona vs Maccabi Bnei Raina,Saturday,2025-01-25,N/A,Kiryat-Shmona Municipal Stadium,Kiryat Shmona
-Maccabi Haifa vs Maccabi Tel Aviv,Saturday,2025-01-25,N/A,Sammy Ofer Stadium,Haifa
-Beitar Jerusalem vs Bnei Sakhnin,Saturday,2025-01-25,N/A,Teddy Stadium,Jerusalem
-Hapoel Be'er Sheva vs Maccabi Petah Tikva,Saturday,2025-01-25,N/A,Turner Stadium,Be'er Sheva
-Maccabi Petah Tikva vs Ashdod,Saturday,2025-02-01,N/A,HaMoshava Stadium,Petach Tikva
-Hapoel Hadera vs Maccabi Haifa,Saturday,2025-02-01,N/A,Shar-Tov Stadium,Netanya
-Hapoel Haifa vs Maccabi Netanya,Saturday,2025-02-01,N/A,Sammy Ofer Stadium,Haifa
-Maccabi Tel Aviv vs Beitar Jerusalem,Saturday,2025-02-01,N/A,Bloomfield Stadium,Tel Aviv
-Hapoel Jerusalem vs Ironi Tiberias,Saturday,2025-02-01,N/A,Teddy Stadium,Jerusalem
-Maccabi Bnei Raina vs Hapoel Be'er Sheva,Saturday,2025-02-01,N/A,Green Stadium,Nazareth Illit
-Bnei Sakhnin vs Ironi Kiryat Shmona,Saturday,2025-02-01,N/A,Doha Stadium,Sakhnin
-Maccabi Netanya vs Hapoel Jerusalem,Saturday,2025-02-08,N/A,Shar-Tov Stadium,Netanya
-Ironi Tiberias vs Maccabi Petah Tikva,Saturday,2025-02-08,N/A,Tiberias Municipal Stadium,Tiberias
-Maccabi Haifa vs Hapoel Haifa,Saturday,2025-02-08,N/A,Sammy Ofer Stadium,Haifa
-Beitar Jerusalem vs Hapoel Hadera,Saturday,2025-02-08,N/A,Teddy Stadium,Jerusalem
-Bnei Sakhnin vs Maccabi Bnei Raina,Saturday,2025-02-08,N/A,Doha Stadium,Sakhnin
-Ashdod vs Hapoel Be'er Sheva,Saturday,2025-02-08,N/A,Yud-Alef Stadium,Ashdod
-Ironi Kiryat Shmona vs Maccabi Tel Aviv,Saturday,2025-02-08,N/A,Kiryat-Shmona Municipal Stadium,Kiryat Shmona
-Hapoel Jerusalem vs Maccabi Haifa,Saturday,2025-02-15,N/A,Teddy Stadium,Jerusalem
-Hapoel Hadera vs Ironi Kiryat Shmona,Saturday,2025-02-15,N/A,Shar-Tov Stadium,Netanya
-Maccabi Bnei Raina vs Ashdod,Saturday,2025-02-15,N/A,Green Stadium,Nazareth Illit
-Maccabi Petah Tikva vs Maccabi Netanya,Saturday,2025-02-15,N/A,HaMoshava Stadium,Petach Tikva
-Maccabi Tel Aviv vs Bnei Sakhnin,Saturday,2025-02-15,N/A,Bloomfield Stadium,Tel Aviv
-Hapoel Be'er Sheva vs Ironi Tiberias,Saturday,2025-02-15,N/A,Turner Stadium,Be'er Sheva
-Hapoel Haifa vs Beitar Jerusalem,Saturday,2025-02-15,N/A,Sammy Ofer Stadium,Haifa
-Maccabi Haifa vs Maccabi Petah Tikva,Saturday,2025-02-22,N/A,Sammy Ofer Stadium,Haifa
-Bnei Sakhnin vs Hapoel Hadera,Saturday,2025-02-22,N/A,Doha Stadium,Sakhnin
-Ironi Kiryat Shmona vs Hapoel Haifa,Saturday,2025-02-22,N/A,Kiryat-Shmona Municipal Stadium,Kiryat Shmona
-Beitar Jerusalem vs Hapoel Jerusalem,Saturday,2025-02-22,N/A,Teddy Stadium,Jerusalem
-Maccabi Netanya vs Hapoel Be'er Sheva,Saturday,2025-02-22,N/A,Shar-Tov Stadium,Netanya
-Ironi Tiberias vs Ashdod,Saturday,2025-02-22,N/A,Tiberias Municipal Stadium,Tiberias
-Maccabi Tel Aviv vs Maccabi Bnei Raina,Saturday,2025-02-22,N/A,Bloomfield Stadium,Tel Aviv
-Maccabi Petah Tikva vs Beitar Jerusalem,Saturday,2025-03-01,N/A,HaMoshava Stadium,Petach Tikva
-Hapoel Haifa vs Bnei Sakhnin,Saturday,2025-03-01,N/A,Sammy Ofer Stadium,Haifa
-Hapoel Jerusalem vs Ironi Kiryat Shmona,Saturday,2025-03-01,N/A,Teddy Stadium,Jerusalem
-Hapoel Hadera vs Maccabi Tel Aviv,Saturday,2025-03-01,N/A,Shar-Tov Stadium,Netanya
-Ironi Tiberias vs Maccabi Bnei Raina,Saturday,2025-03-01,N/A,Tiberias Municipal Stadium,Tiberias
-Hapoel Be'er Sheva vs Maccabi Haifa,Saturday,2025-03-01,N/A,Turner Stadium,Be'er Sheva
-Ashdod vs Maccabi Netanya,Saturday,2025-03-01,N/A,Yud-Alef Stadium,Ashdod
-Beitar Jerusalem vs Hapoel Be'er Sheva,Saturday,2025-03-08,N/A,Teddy Stadium,Jerusalem
-Maccabi Bnei Raina vs Hapoel Hadera,Saturday,2025-03-08,N/A,Green Stadium,Nazareth Illit
-Maccabi Tel Aviv vs Hapoel Haifa,Saturday,2025-03-08,N/A,Bloomfield Stadium,Tel Aviv
-Maccabi Netanya vs Ironi Tiberias,Saturday,2025-03-08,N/A,Shar-Tov Stadium,Netanya
-Ironi Kiryat Shmona vs Maccabi Petah Tikva,Saturday,2025-03-08,N/A,Kiryat-Shmona Municipal Stadium,Kiryat Shmona
-Bnei Sakhnin vs Hapoel Jerusalem,Saturday,2025-03-08,N/A,Doha Stadium,Sakhnin
-Maccabi Haifa vs Ashdod,Saturday,2025-03-08,N/A,Sammy Ofer Stadium,Haifa
+Home Team,Away Team,Day,Date,Time,Stadium,City
+Beitar Jerusalem,Maccabi Netanya,Sunday,2024-09-15,20:15,Teddy Stadium,Jerusalem
+Hapoel Hadera,Maccabi Petah Tikva,Monday,2024-09-16,20:00,Shar-Tov Stadium,Netanya
+Maccabi Tel Aviv,Hapoel Jerusalem,Wednesday,2024-09-18,17:30,Bloomfield Stadium,Tel Aviv
+Hapoel Be'er Sheva,Hapoel Hadera,Saturday,2024-09-21,20:30,Turner Stadium,Be'er Sheva
+Maccabi Netanya,Ironi Kiryat Shmona,Saturday,2024-09-21,20:00,Shar-Tov Stadium,Netanya
+Hapoel Jerusalem,Maccabi Bnei Raina,Saturday,2024-09-21,19:30,Teddy Stadium,Jerusalem
+Maccabi Petah Tikva,Hapoel Haifa,Saturday,2024-09-21,20:00,HaMoshava Stadium,Petach Tikva
+Ironi Tiberias,Bnei Sakhnin,Saturday,2024-09-21,19:30,Green Stadium,Nazareth Illit
+Ashdod,Maccabi Tel Aviv,Sunday,2024-09-22,20:15,Yud-Alef Stadium,Ashdod
+Maccabi Haifa,Beitar Jerusalem,Monday,2024-09-23,20:30,Sammy Ofer Stadium,Haifa
+Bnei Sakhnin,Maccabi Netanya,Saturday,2024-09-28,N/A,Doha Stadium,Sakhnin
+Hapoel Haifa,Hapoel Be'er Sheva,Saturday,2024-09-28,N/A,Sammy Ofer Stadium,Haifa
+Maccabi Bnei Raina,Beitar Jerusalem,Saturday,2024-09-28,N/A,Green Stadium,Nazareth Illit
+Hapoel Jerusalem,Maccabi Petah Tikva,Saturday,2024-09-28,N/A,Teddy Stadium,Jerusalem
+Ironi Kiryat Shmona,Maccabi Haifa,Saturday,2024-09-28,N/A,Shar-Tov Stadium,Netanya
+Maccabi Tel Aviv,Ironi Tiberias,Saturday,2024-09-28,N/A,Bloomfield Stadium,Tel Aviv
+Hapoel Hadera,Ashdod,Saturday,2024-09-28,N/A,Shar-Tov Stadium,Netanya
+Hapoel Be'er Sheva,Hapoel Jerusalem,Saturday,2024-10-05,N/A,Turner Stadium,Be'er Sheva
+Maccabi Petah Tikva,Maccabi Bnei Raina,Saturday,2024-10-05,N/A,HaMoshava Stadium,Petach Tikva
+Ironi Tiberias,Hapoel Hadera,Saturday,2024-10-05,N/A,Tiberias Municipal Stadium,Tiberias
+Ashdod,Hapoel Haifa,Saturday,2024-10-05,N/A,Yud-Alef Stadium,Ashdod
+Maccabi Haifa,Bnei Sakhnin,Saturday,2024-10-05,N/A,Sammy Ofer Stadium,Haifa
+Beitar Jerusalem,Ironi Kiryat Shmona,Saturday,2024-10-05,N/A,Teddy Stadium,Jerusalem
+Maccabi Netanya,Maccabi Tel Aviv,Saturday,2024-10-05,N/A,Shar-Tov Stadium,Netanya
+Maccabi Petah Tikva,Hapoel Be'er Sheva,Saturday,2024-10-19,N/A,HaMoshava Stadium,Petach Tikva
+Hapoel Haifa,Ironi Tiberias,Saturday,2024-10-19,N/A,Sammy Ofer Stadium,Haifa
+Bnei Sakhnin,Beitar Jerusalem,Saturday,2024-10-19,N/A,Doha Stadium,Sakhnin
+Hapoel Hadera,Maccabi Netanya,Saturday,2024-10-19,N/A,Shar-Tov Stadium,Netanya
+Maccabi Tel Aviv,Maccabi Haifa,Saturday,2024-10-19,N/A,Bloomfield Stadium,Tel Aviv
+Hapoel Jerusalem,Ashdod,Saturday,2024-10-19,N/A,Teddy Stadium,Jerusalem
+Maccabi Bnei Raina,Ironi Kiryat Shmona,Saturday,2024-10-19,N/A,Green Stadium,Nazareth Illit
+Hapoel Be'er Sheva,Maccabi Bnei Raina,Saturday,2024-10-26,N/A,Turner Stadium,Be'er Sheva
+Ashdod,Maccabi Petah Tikva,Saturday,2024-10-26,N/A,Yud-Alef Stadium,Ashdod
+Beitar Jerusalem,Maccabi Tel Aviv,Saturday,2024-10-26,N/A,Teddy Stadium,Jerusalem
+Ironi Tiberias,Hapoel Jerusalem,Saturday,2024-10-26,N/A,Tiberias Municipal Stadium,Tiberias
+Maccabi Netanya,Hapoel Haifa,Saturday,2024-10-26,N/A,Shar-Tov Stadium,Netanya
+Maccabi Haifa,Hapoel Hadera,Saturday,2024-10-26,N/A,Sammy Ofer Stadium,Haifa
+Ironi Kiryat Shmona,Bnei Sakhnin,Saturday,2024-10-26,N/A,Kiryat-Shmona Municipal Stadium,Kiryat Shmona
+Maccabi Bnei Raina,Bnei Sakhnin,Saturday,2024-11-02,N/A,Green Stadium,Nazareth Illit
+Maccabi Tel Aviv,Ironi Kiryat Shmona,Saturday,2024-11-02,N/A,Bloomfield Stadium,Tel Aviv
+Hapoel Hadera,Beitar Jerusalem,Saturday,2024-11-02,N/A,Shar-Tov Stadium,Netanya
+Hapoel Be'er Sheva,Ashdod,Saturday,2024-11-02,N/A,Turner Stadium,Be'er Sheva
+Hapoel Jerusalem,Maccabi Netanya,Saturday,2024-11-02,N/A,Teddy Stadium,Jerusalem
+Maccabi Petah Tikva,Ironi Tiberias,Saturday,2024-11-02,N/A,HaMoshava Stadium,Petach Tikva
+Hapoel Haifa,Maccabi Haifa,Saturday,2024-11-02,N/A,Sammy Ofer Stadium,Haifa
+Ironi Tiberias,Hapoel Be'er Sheva,Saturday,2024-11-09,N/A,Tiberias Municipal Stadium,Tiberias
+Ironi Kiryat Shmona,Hapoel Hadera,Saturday,2024-11-09,N/A,Kiryat-Shmona Municipal Stadium,Kiryat Shmona
+Beitar Jerusalem,Hapoel Haifa,Saturday,2024-11-09,N/A,Teddy Stadium,Jerusalem
+Maccabi Haifa,Hapoel Jerusalem,Saturday,2024-11-09,N/A,Sammy Ofer Stadium,Haifa
+Bnei Sakhnin,Maccabi Tel Aviv,Saturday,2024-11-09,N/A,Doha Stadium,Sakhnin
+Maccabi Netanya,Maccabi Petah Tikva,Saturday,2024-11-09,N/A,Shar-Tov Stadium,Netanya
+Ashdod,Maccabi Bnei Raina,Saturday,2024-11-09,N/A,Yud-Alef Stadium,Ashdod
+Maccabi Petah Tikva,Maccabi Haifa,Saturday,2024-11-30,N/A,HaMoshava Stadium,Petach Tikva
+Hapoel Hadera,Bnei Sakhnin,Saturday,2024-11-30,N/A,Shar-Tov Stadium,Netanya
+Hapoel Be'er Sheva,Maccabi Netanya,Saturday,2024-11-30,N/A,Turner Stadium,Be'er Sheva
+Maccabi Bnei Raina,Maccabi Tel Aviv,Saturday,2024-11-30,N/A,Green Stadium,Nazareth Illit
+Hapoel Haifa,Ironi Kiryat Shmona,Saturday,2024-11-30,N/A,Sammy Ofer Stadium,Haifa
+Hapoel Jerusalem,Beitar Jerusalem,Saturday,2024-11-30,N/A,Teddy Stadium,Jerusalem
+Ashdod,Ironi Tiberias,Saturday,2024-11-30,N/A,Yud-Alef Stadium,Ashdod
+Beitar Jerusalem,Maccabi Petah Tikva,Tuesday,2024-12-03,N/A,Teddy Stadium,Jerusalem
+Maccabi Haifa,Hapoel Be'er Sheva,Tuesday,2024-12-03,N/A,Sammy Ofer Stadium,Haifa
+Bnei Sakhnin,Hapoel Haifa,Tuesday,2024-12-03,N/A,Doha Stadium,Sakhnin
+Ironi Kiryat Shmona,Hapoel Jerusalem,Tuesday,2024-12-03,N/A,Kiryat-Shmona Municipal Stadium,Kiryat Shmona
+Maccabi Tel Aviv,Hapoel Hadera,Tuesday,2024-12-03,N/A,Bloomfield Stadium,Tel Aviv
+Maccabi Bnei Raina,Ironi Tiberias,Tuesday,2024-12-03,N/A,Green Stadium,Nazareth Illit
+Maccabi Netanya,Ashdod,Tuesday,2024-12-03,N/A,Shar-Tov Stadium,Netanya
+Maccabi Petah Tikva,Ironi Kiryat Shmona,Saturday,2024-12-07,N/A,HaMoshava Stadium,Petach Tikva
+Hapoel Jerusalem,Bnei Sakhnin,Saturday,2024-12-07,N/A,Teddy Stadium,Jerusalem
+Ironi Tiberias,Maccabi Netanya,Saturday,2024-12-07,N/A,Tiberias Municipal Stadium,Tiberias
+Hapoel Haifa,Maccabi Tel Aviv,Saturday,2024-12-07,N/A,Sammy Ofer Stadium,Haifa
+Hapoel Hadera,Maccabi Bnei Raina,Saturday,2024-12-07,N/A,Shar-Tov Stadium,Netanya
+Ashdod,Maccabi Haifa,Saturday,2024-12-07,N/A,Yud-Alef Stadium,Ashdod
+Hapoel Be'er Sheva,Beitar Jerusalem,Saturday,2024-12-07,N/A,Turner Stadium,Be'er Sheva
+Maccabi Netanya,Maccabi Bnei Raina,Saturday,2024-12-14,N/A,Shar-Tov Stadium,Netanya
+Hapoel Jerusalem,Maccabi Tel Aviv,Saturday,2024-12-14,N/A,Teddy Stadium,Jerusalem
+Ashdod,Beitar Jerusalem,Saturday,2024-12-14,N/A,Yud-Alef Stadium,Ashdod
+Hapoel Haifa,Hapoel Hadera,Saturday,2024-12-14,N/A,Sammy Ofer Stadium,Haifa
+Hapoel Be'er Sheva,Ironi Kiryat Shmona,Saturday,2024-12-14,N/A,Turner Stadium,Be'er Sheva
+Ironi Tiberias,Maccabi Haifa,Saturday,2024-12-14,N/A,Tiberias Municipal Stadium,Tiberias
+Maccabi Petah Tikva,Bnei Sakhnin,Saturday,2024-12-14,N/A,HaMoshava Stadium,Petach Tikva
+Maccabi Bnei Raina,Hapoel Haifa,Saturday,2024-12-21,N/A,Green Stadium,Nazareth Illit
+Ironi Kiryat Shmona,Ashdod,Saturday,2024-12-21,N/A,Kiryat-Shmona Municipal Stadium,Kiryat Shmona
+Maccabi Tel Aviv,Maccabi Petah Tikva,Saturday,2024-12-21,N/A,Bloomfield Stadium,Tel Aviv
+Bnei Sakhnin,Hapoel Be'er Sheva,Saturday,2024-12-21,N/A,Doha Stadium,Sakhnin
+Hapoel Hadera,Hapoel Jerusalem,Saturday,2024-12-21,N/A,Shar-Tov Stadium,Netanya
+Beitar Jerusalem,Ironi Tiberias,Saturday,2024-12-21,N/A,Teddy Stadium,Jerusalem
+Maccabi Haifa,Maccabi Netanya,Saturday,2024-12-21,N/A,Sammy Ofer Stadium,Haifa
+Maccabi Haifa,Maccabi Bnei Raina,Tuesday,2024-12-31,N/A,Sammy Ofer Stadium,Haifa
+Ashdod,Bnei Sakhnin,Tuesday,2024-12-31,N/A,Yud-Alef Stadium,Ashdod
+Maccabi Netanya,Beitar Jerusalem,Tuesday,2024-12-31,N/A,Shar-Tov Stadium,Netanya
+Hapoel Jerusalem,Hapoel Haifa,Tuesday,2024-12-31,N/A,Teddy Stadium,Jerusalem
+Ironi Tiberias,Ironi Kiryat Shmona,Tuesday,2024-12-31,N/A,Tiberias Municipal Stadium,Tiberias
+Hapoel Be'er Sheva,Maccabi Tel Aviv,Tuesday,2024-12-31,N/A,Turner Stadium,Be'er Sheva
+Maccabi Petah Tikva,Hapoel Hadera,Tuesday,2024-12-31,N/A,HaMoshava Stadium,Petach Tikva
+Hapoel Hadera,Hapoel Be'er Sheva,Saturday,2025-01-04,N/A,Shar-Tov Stadium,Netanya
+Hapoel Haifa,Maccabi Petah Tikva,Saturday,2025-01-04,N/A,Sammy Ofer Stadium,Haifa
+Beitar Jerusalem,Maccabi Haifa,Saturday,2025-01-04,N/A,Teddy Stadium,Jerusalem
+Maccabi Bnei Raina,Hapoel Jerusalem,Saturday,2025-01-04,N/A,Green Stadium,Nazareth Illit
+Bnei Sakhnin,Ironi Tiberias,Saturday,2025-01-04,N/A,Doha Stadium,Sakhnin
+Ironi Kiryat Shmona,Maccabi Netanya,Saturday,2025-01-04,N/A,Kiryat-Shmona Municipal Stadium,Kiryat Shmona
+Maccabi Tel Aviv,Ashdod,Saturday,2025-01-04,N/A,Bloomfield Stadium,Tel Aviv
+Maccabi Haifa,Ironi Kiryat Shmona,Saturday,2025-01-11,N/A,Sammy Ofer Stadium,Haifa
+Maccabi Petah Tikva,Hapoel Jerusalem,Saturday,2025-01-11,N/A,HaMoshava Stadium,Petach Tikva
+Maccabi Netanya,Bnei Sakhnin,Saturday,2025-01-11,N/A,Shar-Tov Stadium,Netanya
+Ironi Tiberias,Maccabi Tel Aviv,Saturday,2025-01-11,N/A,Tiberias Municipal Stadium,Tiberias
+Hapoel Be'er Sheva,Hapoel Haifa,Saturday,2025-01-11,N/A,Turner Stadium,Be'er Sheva
+Ashdod,Hapoel Hadera,Saturday,2025-01-11,N/A,Yud-Alef Stadium,Ashdod
+Beitar Jerusalem,Maccabi Bnei Raina,Saturday,2025-01-11,N/A,Teddy Stadium,Jerusalem
+Hapoel Haifa,Ashdod,Saturday,2025-01-18,N/A,Sammy Ofer Stadium,Haifa
+Maccabi Tel Aviv,Maccabi Netanya,Saturday,2025-01-18,N/A,Bloomfield Stadium,Tel Aviv
+Bnei Sakhnin,Maccabi Haifa,Saturday,2025-01-18,N/A,Doha Stadium,Sakhnin
+Maccabi Bnei Raina,Maccabi Petah Tikva,Saturday,2025-01-18,N/A,Green Stadium,Nazareth Illit
+Hapoel Jerusalem,Hapoel Be'er Sheva,Saturday,2025-01-18,N/A,Teddy Stadium,Jerusalem
+Hapoel Hadera,Ironi Tiberias,Saturday,2025-01-18,N/A,Shar-Tov Stadium,Netanya
+Ironi Kiryat Shmona,Beitar Jerusalem,Saturday,2025-01-18,N/A,Kiryat-Shmona Municipal Stadium,Kiryat Shmona
+Ashdod,Hapoel Jerusalem,Saturday,2025-01-25,N/A,Yud-Alef Stadium,Ashdod
+Hapoel Be'er Sheva,Maccabi Petah Tikva,Saturday,2025-01-25,N/A,Turner Stadium,Be'er Sheva
+Ironi Tiberias,Hapoel Haifa,Saturday,2025-01-25,N/A,Tiberias Municipal Stadium,Tiberias
+Beitar Jerusalem,Bnei Sakhnin,Saturday,2025-01-25,N/A,Teddy Stadium,Jerusalem
+Ironi Kiryat Shmona,Maccabi Bnei Raina,Saturday,2025-01-25,N/A,Kiryat-Shmona Municipal Stadium,Kiryat Shmona
+Maccabi Netanya,Hapoel Hadera,Saturday,2025-01-25,N/A,Shar-Tov Stadium,Netanya
+Maccabi Haifa,Maccabi Tel Aviv,Saturday,2025-01-25,N/A,Sammy Ofer Stadium,Haifa
+Hapoel Hadera,Maccabi Haifa,Saturday,2025-02-01,N/A,Shar-Tov Stadium,Netanya
+Maccabi Petah Tikva,Ashdod,Saturday,2025-02-01,N/A,HaMoshava Stadium,Petach Tikva
+Maccabi Tel Aviv,Beitar Jerusalem,Saturday,2025-02-01,N/A,Bloomfield Stadium,Tel Aviv
+Hapoel Jerusalem,Ironi Tiberias,Saturday,2025-02-01,N/A,Teddy Stadium,Jerusalem
+Bnei Sakhnin,Ironi Kiryat Shmona,Saturday,2025-02-01,N/A,Doha Stadium,Sakhnin
+Maccabi Bnei Raina,Hapoel Be'er Sheva,Saturday,2025-02-01,N/A,Green Stadium,Nazareth Illit
+Hapoel Haifa,Maccabi Netanya,Saturday,2025-02-01,N/A,Sammy Ofer Stadium,Haifa
+Beitar Jerusalem,Hapoel Hadera,Saturday,2025-02-08,N/A,Teddy Stadium,Jerusalem
+Ashdod,Hapoel Be'er Sheva,Saturday,2025-02-08,N/A,Yud-Alef Stadium,Ashdod
+Bnei Sakhnin,Maccabi Bnei Raina,Saturday,2025-02-08,N/A,Doha Stadium,Sakhnin
+Maccabi Haifa,Hapoel Haifa,Saturday,2025-02-08,N/A,Sammy Ofer Stadium,Haifa
+Ironi Tiberias,Maccabi Petah Tikva,Saturday,2025-02-08,N/A,Tiberias Municipal Stadium,Tiberias
+Maccabi Netanya,Hapoel Jerusalem,Saturday,2025-02-08,N/A,Shar-Tov Stadium,Netanya
+Ironi Kiryat Shmona,Maccabi Tel Aviv,Saturday,2025-02-08,N/A,Kiryat-Shmona Municipal Stadium,Kiryat Shmona
+Maccabi Tel Aviv,Bnei Sakhnin,Saturday,2025-02-15,N/A,Bloomfield Stadium,Tel Aviv
+Hapoel Hadera,Ironi Kiryat Shmona,Saturday,2025-02-15,N/A,Shar-Tov Stadium,Netanya
+Hapoel Jerusalem,Maccabi Haifa,Saturday,2025-02-15,N/A,Teddy Stadium,Jerusalem
+Maccabi Petah Tikva,Maccabi Netanya,Saturday,2025-02-15,N/A,HaMoshava Stadium,Petach Tikva
+Hapoel Be'er Sheva,Ironi Tiberias,Saturday,2025-02-15,N/A,Turner Stadium,Be'er Sheva
+Maccabi Bnei Raina,Ashdod,Saturday,2025-02-15,N/A,Green Stadium,Nazareth Illit
+Hapoel Haifa,Beitar Jerusalem,Saturday,2025-02-15,N/A,Sammy Ofer Stadium,Haifa
+Ironi Kiryat Shmona,Hapoel Haifa,Saturday,2025-02-22,N/A,Kiryat-Shmona Municipal Stadium,Kiryat Shmona
+Beitar Jerusalem,Hapoel Jerusalem,Saturday,2025-02-22,N/A,Teddy Stadium,Jerusalem
+Maccabi Haifa,Maccabi Petah Tikva,Saturday,2025-02-22,N/A,Sammy Ofer Stadium,Haifa
+Ironi Tiberias,Ashdod,Saturday,2025-02-22,N/A,Tiberias Municipal Stadium,Tiberias
+Bnei Sakhnin,Hapoel Hadera,Saturday,2025-02-22,N/A,Doha Stadium,Sakhnin
+Maccabi Netanya,Hapoel Be'er Sheva,Saturday,2025-02-22,N/A,Shar-Tov Stadium,Netanya
+Maccabi Tel Aviv,Maccabi Bnei Raina,Saturday,2025-02-22,N/A,Bloomfield Stadium,Tel Aviv
+Ironi Tiberias,Maccabi Bnei Raina,Saturday,2025-03-01,N/A,Tiberias Municipal Stadium,Tiberias
+Hapoel Hadera,Maccabi Tel Aviv,Saturday,2025-03-01,N/A,Shar-Tov Stadium,Netanya
+Hapoel Jerusalem,Ironi Kiryat Shmona,Saturday,2025-03-01,N/A,Teddy Stadium,Jerusalem
+Hapoel Be'er Sheva,Maccabi Haifa,Saturday,2025-03-01,N/A,Turner Stadium,Be'er Sheva
+Maccabi Petah Tikva,Beitar Jerusalem,Saturday,2025-03-01,N/A,HaMoshava Stadium,Petach Tikva
+Ashdod,Maccabi Netanya,Saturday,2025-03-01,N/A,Yud-Alef Stadium,Ashdod
+Hapoel Haifa,Bnei Sakhnin,Saturday,2025-03-01,N/A,Sammy Ofer Stadium,Haifa
+Maccabi Netanya,Ironi Tiberias,Saturday,2025-03-08,N/A,Shar-Tov Stadium,Netanya
+Maccabi Bnei Raina,Hapoel Hadera,Saturday,2025-03-08,N/A,Green Stadium,Nazareth Illit
+Maccabi Tel Aviv,Hapoel Haifa,Saturday,2025-03-08,N/A,Bloomfield Stadium,Tel Aviv
+Beitar Jerusalem,Hapoel Be'er Sheva,Saturday,2025-03-08,N/A,Teddy Stadium,Jerusalem
+Maccabi Haifa,Ashdod,Saturday,2025-03-08,N/A,Sammy Ofer Stadium,Haifa
+Bnei Sakhnin,Hapoel Jerusalem,Saturday,2025-03-08,N/A,Doha Stadium,Sakhnin
+Ironi Kiryat Shmona,Maccabi Petah Tikva,Saturday,2025-03-08,N/A,Kiryat-Shmona Municipal Stadium,Kiryat Shmona
