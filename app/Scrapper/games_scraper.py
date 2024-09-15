@@ -13,7 +13,7 @@ session = requests.Session()
 
 def fetch(url):
     try:
-        response = session.get(url, timeout=30)
+        response = session.get(url, timeout=60)
         response.raise_for_status()
         return response.text
     except requests.RequestException as e:
@@ -51,6 +51,7 @@ def parse_match_details(html):
 def get_all_matches(url):
     matches = []
     page = 1
+
     while True:
         html = fetch(f"{url}?page={page}")
         if not html:
@@ -59,7 +60,9 @@ def get_all_matches(url):
         soup = BeautifulSoup(html, 'html.parser')
         match_divs = soup.find_all('div', class_='match-grid-match')
 
+        # Stop if no match divs found on the current page
         if not match_divs:
+            print(f"No matches found on page {page}, stopping.")
             break
 
         for match in match_divs:
@@ -71,8 +74,18 @@ def get_all_matches(url):
                     'Match': f"{home_team} vs {away_team}",
                     'PreviewURL': preview_url
                 })
+
+        # Check if there is a "Next" button in the pagination
+        next_button = soup.find('a', rel='next')
+        if not next_button:
+            print(f"No 'Next' button found, stopping at page {page}.")
+            break
+
+        # Move to the next page
         page += 1
+
     return matches
+
 
 
 def process_match(match):

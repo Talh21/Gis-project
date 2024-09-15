@@ -1,16 +1,23 @@
 import requests
 from bs4 import BeautifulSoup
 import pandas as pd
-
+from sqlalchemy import create_engine
 
 class StadiumCoordinates:
 
-    def __init__(self, base_url):
+    def __init__(self, base_url, db_url):
         self.base_url = base_url
+        self.db_url = db_url
         self.data = []
 
     def get_stadium_links(self):
-        response = requests.get(self.base_url)
+        try:
+            response = requests.get(self.base_url)
+            response.raise_for_status()
+        except requests.exceptions.RequestException as e:
+            print(f"Failed to retrieve data from {self.base_url}: {e}")
+            return
+        
         soup = BeautifulSoup(response.content, 'html.parser')
 
         # Find the table with stadium information
@@ -35,41 +42,73 @@ class StadiumCoordinates:
             city_link = cells[4].find('a', href=True)
             city_name = city_link.text if city_link else 'Unknown'
 
+            # Ensure the stadium link is properly formed
+            full_stadium_href = f'https://en.wikipedia.org{stadium_href}' if stadium_href else ''
+
             # Store the extracted information
             self.data.append({
-                'Stadium': stadium_name,
-                'Stadium_href': 'https://en.wikipedia.org' + stadium_href,
-                'City': city_name
+                'stadium': stadium_name,
+                'stadium_href': full_stadium_href,
+                'city': city_name
             })
 
     def get_coordinates(self):
         self.get_stadium_links()
 
         for index, stadium in enumerate(self.data):
-            response = requests.get(stadium['Stadium_href'])
-            soup = BeautifulSoup(response.content, 'html.parser')
+            try:
+                response = requests.get(stadium['stadium_href'])
+                response.raise_for_status()
+                soup = BeautifulSoup(response.content, 'html.parser')
+            except requests.exceptions.RequestException as e:
+                print(f"Failed to retrieve coordinates for {stadium['stadium']}: {e}")
+                self.data[index]['latitude'] = None
+                self.data[index]['longitude'] = None
+                continue
+            
+            # Extract coordinates from the page
             geo_cor = soup.find('span', class_='geo')
-            if geo_cor is not None:
-                latitude, longitude = geo_cor.text.split(';')
-                self.data[index]['Latitude'] = latitude.strip()
-                self.data[index]['Longitude'] = longitude.strip()
+            if geo_cor:
+                try:
+                    l, longitude = geo_cor.text.split(';')
+                    self.data[index]['latitude'] = l.strip()
+                    self.data[index]['longitude'] = longitude.strip()
+                except ValueError:
+                    self.data[index]['latitude'] = None
+                    self.data[index]['longitude'] = None
             else:
-                self.data[index]['Latitude'] = None
-                self.data[index]['Longitude'] = None
+                self.lata[index]['latitude'] = None
+                self.data[index]['longitude'] = None
 
-        # Remove rows where Latitude or Longitude are empty
-        self.data = [row for row in self.data if row['Latitude'] and row['Longitude']]
+        # Remove rows where l or longitude are empty
+        self.data = [row for row in self.data if row['latitude'] and row['longitude']]
 
-    def save_to_csv(self, filename):
+    def save_to_db(self):
+        # Convert the list of dictionaries to a DataFrame
         df = pd.DataFrame(self.data)
-        df.to_csv(filename, index=False, na_rep='None')
+
+        # Create a connection to the PostgreSQL database
+        engine = create_engine(self.db_url)
+
+        # Save the DataFrame to the stadium_coordinates table
+        try:
+            df.to_sql('stadium_coordinates', engine, schema='stadium_coordinates', if_exists='append', index=False)
+            print("Data successfully saved to the database.")
+        except Exception as e:
+            print(f"Failed to save data to the database: {e}")
 
 
 def main():
     base_url = "https://en.wikipedia.org/wiki/List_of_football_stadiums_in_Israel"
-    app = StadiumCoordinates(base_url=base_url)
+    
+    # PostgreSQL connection URL (replace with your actual database credentials)
+    db_url = 'postgresql://postgres:210197@localhost/football_matches_db'
+
+    app = StadiumCoordinates(base_url=base_url, db_url=db_url)
     app.get_coordinates()
-    app.save_to_csv('C:\GIS\Project\GIS\\app\static\data\stadium_coordinates.csv')
+    
+    # Save directly to the database
+    app.save_to_db()
 
 
 if __name__ == "__main__":
