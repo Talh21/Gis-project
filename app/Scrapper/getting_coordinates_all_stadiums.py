@@ -1,7 +1,7 @@
 import requests
 from bs4 import BeautifulSoup
 import pandas as pd
-from sqlalchemy import create_engine
+from sqlalchemy import create_engine, text
 
 class StadiumCoordinates:
 
@@ -83,20 +83,21 @@ class StadiumCoordinates:
         # Remove rows where l or longitude are empty
         self.data = [row for row in self.data if row['latitude'] and row['longitude']]
 
-    def save_to_db(self):
-        # Convert the list of dictionaries to a DataFrame
+
+    def update_database(self):
         df = pd.DataFrame(self.data)
 
         # Create a connection to the PostgreSQL database
         engine = create_engine(self.db_url)
-
-        # Save the DataFrame to the stadium_coordinates table
-        try:
-            df.to_sql('stadium_coordinates', engine, schema='stadium_coordinates', if_exists='append', index=False)
-            print("Data successfully saved to the database.")
-        except Exception as e:
-            print(f"Failed to save data to the database: {e}")
-
+        # Connect to the database
+        with engine.connect() as conn:
+            # Start a transaction
+            with conn.begin():
+                # Clear the existing data from the table
+                conn.execute(text("TRUNCATE TABLE stadium_coordinates;"))
+                
+                # Insert new data into the table
+                df.to_sql('stadium_coordinates', conn, if_exists='append', index=False)
 
 def main():
     base_url = "https://en.wikipedia.org/wiki/List_of_football_stadiums_in_Israel"
@@ -108,7 +109,7 @@ def main():
     app.get_coordinates()
     
     # Save directly to the database
-    app.save_to_db()
+    app.update_database()
 
 
 if __name__ == "__main__":

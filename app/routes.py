@@ -44,3 +44,5 @@ def api_matches():
                     row_dict[key] = value
             data.append(row_dict)
     return jsonify(data)
+
+
