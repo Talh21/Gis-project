@@ -116,6 +116,7 @@ function displayGroupedMatchesOnMap(map, groupedMatches) {
     });
 
     const bounds = L.latLngBounds();
+
     Object.keys(groupedMatches).forEach(stadiumName => {
         const matches = groupedMatches[stadiumName];
         let coords = primaryDict[stadiumName] || cityDict[matches[0].city.toLowerCase().trim()];
@@ -123,26 +124,41 @@ function displayGroupedMatchesOnMap(map, groupedMatches) {
         if (coords) {
             const [lat, lng] = coords;
             const popupContent = createPopupContent(matches);
-            L.marker([lat, lng]).addTo(map).bindPopup(popupContent);
-            bounds.extend([lat, lng]);
+            const marker = L.marker([lat, lng]).addTo(map).bindPopup(popupContent);
+            bounds.extend([lat, lng]);  // Extend map bounds to include the marker's location
         } else {
             console.log(`Coordinates not found for stadium: ${stadiumName}`);
         }
     });
 
     if (bounds.isValid()) {
-        map.fitBounds(bounds);
+        map.fitBounds(bounds);  // Adjust map view to fit all markers within bounds
     }
 }
 
+
+
 function createPopupContent(matches) {
-    let content = `<div><strong>Matches at ${matches[0].stadium}:</strong><ul>`;
+    let content = `<div class="popup-content"><strong>Matches at ${matches[0].stadium}:</strong><table class="match-table">`;
     matches.forEach(match => {
-        content += `<li>${match.home_team} vs ${match.away_team}<br>Date: ${match.date}<br>Time: ${match.time}</li>`;
+        content += `
+            <tr>
+                <td><strong>${match.home_team} vs ${match.away_team}</strong></td>
+            </tr>
+            <tr>
+                <td><span>Date:</span> ${match.date}</td>
+            </tr>
+            <tr>
+                <td><span>Day:</span> ${match.day}</td>
+            </tr>
+            <tr>
+                <td><span>Time:</span> ${match.time != null ? match.time : 'N/A'}</td>
+            </tr>`;
     });
-    content += '</ul></div>';
+    content += '</table></div>';
     return content;
 }
+
 
 window.onload = () => {
     initializeCoordDict(initMap);

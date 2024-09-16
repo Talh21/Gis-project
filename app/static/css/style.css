@@ -74,3 +74,51 @@ button:hover {
     flex-grow: 1;
     height: 100vh;
 }
+
+/* Popup content styling */
+
+.popup-content {
+    max-height: 300px; /* Adjusted height */
+    overflow-y: auto;  /* Keeps the scrollbar for overflow */
+    width: 300px; 
+}
+
+.match-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+.match-table td {
+    padding: 5px;
+    border-bottom: 1px solid #ddd;
+}
+
+.match-table td strong {
+    font-size: 16px;
+    color: #0077cc;
+}
+
+.match-table span {
+    font-weight: bold;
+    color: #555;
+}
+
+/* Pagination buttons */
+.pagination {
+    margin-top: 10px;
+    text-align: center;
+}
+
+.pagination a {
+    padding: 5px 10px;
+    margin: 0 5px;
+    background-color: #0077cc;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.pagination a:hover {
+    background-color: #005fa3;
+}
