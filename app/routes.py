@@ -26,22 +26,17 @@ def api_coordinates():
 
 @main.route('/api/matches')
 def api_matches():
-    query = text('SELECT * FROM football_fixtures')
+    query = text('''
+        SELECT f.*, s.field_size, s.opened_date, s.image_url, s.capacity, s.city
+        FROM football_fixtures f
+        LEFT JOIN stadium_info s ON (f.stadium = s.stadium OR f.city = s.city)
+    ''')
     with engine.connect() as conn:
         result = conn.execute(query)
-        # Convert result to a list of dictionaries
         data = []
         for row in result:
-            row_dict = {}
-            for key, value in zip(result.keys(), row):
-                if isinstance(value, (datetime, date)):
-                    # Convert datetime and date to ISO 8601 string format
-                    row_dict[key] = value.isoformat()
-                elif isinstance(value, time):
-                    # Convert time to a string format
-                    row_dict[key] = value.strftime('%H:%M:%S')
-                else:
-                    row_dict[key] = value
+            row_dict = {key: (value.isoformat() if isinstance(value, (datetime, date)) else value.strftime('%H:%M:%S') if isinstance(value, time) else value)
+                        for key, value in zip(result.keys(), row)}
             data.append(row_dict)
     return jsonify(data)
 

@@ -139,20 +139,27 @@ function displayGroupedMatchesOnMap(map, groupedMatches) {
 
 
 function createPopupContent(matches) {
-    let content = `<div class="popup-content"><strong>Matches at ${matches[0].stadium}:</strong><table class="match-table">`;
+    let content = `<div class="popup-content"><strong>Matches at ${matches[0].stadium || matches[0].city}:</strong><ul>`;
+    if (matches.length > 0) {
+        content += `<li>Capacity: ${matches[0].capacity || 'N/A'}</li>`;
+        content += `<li>Field Size: ${matches[0].field_size || 'N/A'}</li>`;
+        content += `<li>Opened: ${matches[0].opened_date || 'N/A'}</li>`;
+        content += `<li><img src="${matches[0].image_url || '#'}" alt="Stadium Image" style="width: 100px; height: auto;"></li>`;
+    }
+    content += `<table class="match-table">`;
     matches.forEach(match => {
         content += `
             <tr>
                 <td><strong>${match.home_team} vs ${match.away_team}</strong></td>
             </tr>
             <tr>
-                <td><span>Date:</span> ${match.date}</td>
+                <td>Date: ${match.date}</td>
             </tr>
             <tr>
-                <td><span>Day:</span> ${match.day}</td>
+                <td>Day: ${match.day}</td>
             </tr>
             <tr>
-                <td><span>Time:</span> ${match.time != null ? match.time : 'N/A'}</td>
+                <td>Time: ${match.time != null ? match.time : 'N/A'}</td>
             </tr>`;
     });
     content += '</table></div>';

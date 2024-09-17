@@ -2,11 +2,12 @@ from sqlalchemy import create_engine, text
 import requests
 from bs4 import BeautifulSoup
 import pandas as pd
-
+import re
 
 # Database connection
 DATABASE_URI = 'postgresql://postgres:210197@localhost/football_matches_db'
 engine = create_engine(DATABASE_URI)
+
 
 # Function to extract information from the infobox
 def extract_info(infobox, label):
@@ -14,6 +15,8 @@ def extract_info(infobox, label):
     if row:
         return row.find_next_sibling('td').get_text(strip=True)
     return None
+
+
 
 def extract_image_url(infobox):
     image_tag = infobox.find('td', class_='infobox-image')
@@ -37,6 +40,24 @@ def clean_opened_date(opened):
         return str(opened).split(';', 1)[0]
     return None
 
+def update_city_column():
+    with engine.connect() as conn:
+        # Fetch stadium names and corresponding city names from stadium_coordinates
+        query = text('SELECT stadium, city FROM stadium_coordinates')
+        result = conn.execute(query)
+        
+        # Prepare an update statement
+        update_statement = text("""
+            UPDATE stadium_info
+            SET city = src.city
+            FROM stadium_coordinates src
+            WHERE stadium_info.stadium = src.stadium
+        """)
+        
+        # Execute the update statement
+        conn.execute(update_statement)
+        print("City column updated successfully.")
+
 def update_database(df, engine):
     # Connect to the database
     with engine.connect() as conn:
@@ -47,6 +68,26 @@ def update_database(df, engine):
             
             # Insert new data into the table
             df.to_sql('stadium_info', conn, if_exists='append', index=False)
+
+def update_city_column():
+    with engine.connect() as conn:
+        # Fetch stadium names and corresponding city names from stadium_coordinates
+        with conn.begin():
+            query = text('SELECT stadium, city FROM stadium_coordinates')
+            result = conn.execute(query)
+            
+            # Prepare an update statement
+            update_statement = text("""
+                UPDATE stadium_info
+                SET city = src.city
+                FROM stadium_coordinates src
+                WHERE stadium_info.stadium = src.stadium
+            """)
+            
+            # Execute the update statement
+            conn.execute(update_statement)
+            print("City column updated successfully.")
+
 
 # Main function to scrape stadium data
 def main():
@@ -62,7 +103,7 @@ def main():
             soup = BeautifulSoup(response.content, 'html.parser')
 
             # Find the infobox (table with stadium information)
-            infobox = soup.find('table', class_='infobox')
+            infobox = soup.find('table', class_='infobox vcard')
 
             # Initialize a dictionary to hold the extracted data
             stadium_info = {
@@ -78,6 +119,7 @@ def main():
             stadium_info_list.append(stadium_info)
     
     return stadium_info_list
+
 
 # Function to clean and process DataFrame
 def processDataFrame(stadium_info_list):
@@ -95,3 +137,4 @@ if __name__ == "__main__":
     df = processDataFrame(stadium_info_list)
 
     update_database(df, engine)
+    update_city_column()
