@@ -5,7 +5,7 @@ import re
 from urllib.parse import urljoin
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from datetime import datetime, timedelta
-from sqlalchemy import create_engine, text
+from sqlalchemy import create_engine
 import random
 import time
 
@@ -14,7 +14,7 @@ DATABASE_URI = 'postgresql://postgres:210197@localhost/football_matches_db'
 
 
 BASE_URL = "https://www.fastscore.com"
-FIXTURES_URL = [f"{BASE_URL}/israel/ligat-haal/fixtures", f"{BASE_URL}/israel/liga-leumit/fixtures"]
+FIXTURES_URL = f"{BASE_URL}/israel/ligat-haal/fixtures"
 
 session = requests.Session()
 
@@ -141,16 +141,17 @@ def clean_stadium_name(stadium_name):
     }
     return replacements.get(clean_name, clean_name)
 
-def update_database(df, engine):
-    # Connect to the database
-    with engine.connect() as conn:
-        # Start a transaction
-        with conn.begin():
-            # Clear the existing data from the table
-            conn.execute(text("TRUNCATE TABLE football_fixtures;"))
-            
-            # Insert new data into the table
-            df.to_sql('football_fixtures', conn, if_exists='append', index=False)
+# def process_dataframe(df):
+#     df = df.drop(columns=['PreviewURL'])
+#     df = df[df['stadium'] != 'N/A']
+#     df['city'] = df['stadium'].apply(extract_and_clean_city_name)
+#     df['stadium'] = df['stadium'].apply(clean_stadium_name)
+#     df['date'] = pd.to_datetime(df['date'], errors='coerce', dayfirst=True).dt.strftime('%Y-%m-%d')
+#     df = df.dropna(subset=['date'])  # Drop rows where Date is NaT
+#     df = df.sort_values(by=['date'], ascending=True)
+#     df = df.drop_duplicates()
+#     return df
+
 def main():
     print("Fetching all matches...")
     all_matches = get_all_matches(FIXTURES_URL)
@@ -177,8 +178,9 @@ def main():
     df = pd.DataFrame(processed_matches)
     df = process_dataframe(df)
     engine = create_engine(DATABASE_URI)
-    update_database(df, engine)
 
+
+    df.to_sql('football_fixtures', engine, if_exists='append', index=False)
     print("\nData saved to 'DB'")
 
 if __name__ == "__main__":
