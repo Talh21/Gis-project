@@ -1,3 +1,6 @@
+// Global variable to keep track of the current popup
+let currentPopup = null;
+
 function initializeCoordDict(callback) {
     const primaryDict = {};
     const cityDict = {};
@@ -74,9 +77,9 @@ function filterMatchesAndDisplay(map, matches, stadiumInfo) {
         const awayTeam = match.away_team ? match.away_team.toLowerCase().trim() : '';
 
         return (isNaN(startDate) || matchDate >= startDate) &&
-               (isNaN(endDate) || matchDate <= endDate) &&
-               (city === '' || matchCity.includes(city)) &&
-               (team === '' || homeTeam.includes(team) || awayTeam.includes(team));
+                (isNaN(endDate) || matchDate <= endDate) &&
+                (city === '' || matchCity.includes(city)) &&
+                (team === '' || homeTeam.includes(team) || awayTeam.includes(team));
     });
 
     const groupedMatches = groupMatchesByStadium(filteredMatches);
@@ -136,42 +139,80 @@ function createPopupContent(matches, stadiumInfo) {
     const stadiumName = matches[0].stadium || matches[0].city;
     let stadium = stadiumInfo.find(info => info.stadium.toLowerCase().trim() === stadiumName.toLowerCase().trim());
 
-    // If no match is found by stadium name, try matching by city name
     if (!stadium) {
         stadium = stadiumInfo.find(info => info.city.toLowerCase().trim() === matches[0].city.toLowerCase().trim());
     }
 
-    let content = `<div class="popup-content"><strong>Matches at ${stadiumName}:</strong><ul>`;
-    if (stadium) {
-        content += `<li>Capacity: ${stadium.capacity || 'N/A'}</li>`;
-        content += `<li>Field Size: ${stadium.field_size || 'N/A'}</li>`;
-        content += `<li>Opened: ${stadium.opened_date || 'N/A'}</li>`;
-        content += `<li><img src="${stadium.image_url || '#'}" alt="Stadium Image" style="width: 100px; height: auto;"></li>`;
-    } else {
-        content += `<li>Stadium information not available</li>`;
-    }
+    // Safely stringify the stadium object and replace any problematic characters
+    const sanitizedStadium = JSON.stringify(stadium)
+        .replace(/'/g, "&apos;")  // Replace apostrophes with HTML entities
+        .replace(/"/g, '&quot;');  // Replace quotes with HTML entities
 
-    content += `<table class="match-table">`;
+    let content = `<div class="popup-content">
+                    <strong>${stadiumName}</strong>
+                    </button>
+                    <button class="info-btn" onclick='showDetailedInfo(${sanitizedStadium})'>
+                    <i class="info-icon">i</i>
+                    </button>
+                    <ul><table class="match-table">`;
+
     matches.forEach(match => {
-        content += `
-            <tr>
-                <td><strong>${match.home_team} vs ${match.away_team}</strong></td>
-            </tr>
-            <tr>
-                <td>Date: ${match.date}</td>
-            </tr>
-            <tr>
-                <td>Day: ${match.day}</td>
-            </tr>
-            <tr>
-                <td>Time: ${match.time != null ? match.time : 'N/A'}</td>
-            </tr>`;
+        content += `<tr>
+                    <td><strong>${match.home_team} vs ${match.away_team}</strong></td>
+                    </tr>
+                    <tr>
+                    <td>Date: ${match.date}</td>
+                    </tr>
+                    <tr>
+                    <td>Day: ${match.day}</td>
+                    </tr>
+                    <tr>
+                    <td>Time: ${match.time != null ? match.time : 'N/A'}</td>
+                    </tr>`;
     });
-    content += '</table></div>';
+    content += '</table></ul></div>';
 
     return content;
 }
 
+function showDetailedInfo(stadium) {
+    if (currentPopup) {
+        // Close the currently open popup
+        window.map.closePopup(currentPopup);
+    }
+
+    if (stadium) {
+        // Construct the popup content
+        let popupContent = `<div class="popup-content">
+                            <img src="${stadium.image_url ? stadium.image_url : '/static/images/home_screen.jpg'}" alt="Stadium Image" style="width:100%; height:auto;">
+                            <div>
+                                <p><strong>Stadium Name:</strong> ${stadium.stadium}</p>
+                                <p><strong>Capacity:</strong> ${stadium.capacity ? stadium.capacity : 'N/A'}</p>
+                                <p><strong>Field Size:</strong> ${stadium.field_size ? stadium.field_size : 'N/A'}</p>
+                                <p><strong>Opened:</strong> ${stadium.opened_date ? stadium.opened_date : 'N/A'}</p>
+                            </div>
+                        </div>`;
+
+        // Find the stadium's coordinates in the map
+        const stadiumName = stadium.stadium.toLowerCase().trim();
+        const coords = window.coordDict.primary[stadiumName] || window.coordDict.city[stadium.city.toLowerCase().trim()];
+
+        if (coords) {
+            const [lat, lng] = coords;
+
+            // Create a new popup on the map
+            currentPopup = L.popup()
+                .setLatLng([lat, lng])  // Set the popup location based on the stadium's coordinates
+                .setContent(popupContent)  // Set the content to include the stadium image and details
+                .openOn(window.map);  // Open the popup on the map
+
+        } else {
+            console.log(`Coordinates not found for stadium: ${stadium.stadium}`);
+        }
+    } else {
+        console.log('Stadium information not available.');
+    }
+}
 
 window.onload = () => {
     initializeCoordDict(initMap);

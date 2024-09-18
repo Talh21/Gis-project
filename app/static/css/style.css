@@ -78,7 +78,7 @@ button:hover {
 /* Popup content styling */
 
 .popup-content {
-    max-height: 300px; /* Adjusted height */
+    max-height: 400px; /* Adjusted height */
     overflow-y: auto;  /* Keeps the scrollbar for overflow */
     width: 300px; 
 }
@@ -121,4 +121,19 @@ button:hover {
 
 .pagination a:hover {
     background-color: #005fa3;
+}
+
+.info-btn {
+    background-color: #007BFF;
+    border: none;
+    color: white;
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    margin-left: 10px;
+    cursor: pointer;
 }
