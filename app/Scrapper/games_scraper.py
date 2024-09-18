@@ -11,8 +11,6 @@ import time
 
 DATABASE_URI = 'postgresql://postgres:210197@localhost/football_matches_db'
 
-
-
 BASE_URL = "https://www.fastscore.com"
 FIXTURES_URL = [f"{BASE_URL}/israel/ligat-haal/fixtures", f"{BASE_URL}/israel/liga-leumit/fixtures"]
 
@@ -34,10 +32,15 @@ def fetch(url):
             else:
                 return None
 
+def extract_league_from_url(url):
+    match = re.search(r'israel/([^/]+)/fixtures', url)
+    if match:
+        return match.group(1).replace('-', ' ').title()  # Converts 'liga-leumit' to 'Liga Leumit'
+    return None
 
 def parse_match_details(html):
     if not html:
-        return None, None, None, None
+        return None, None, None, None, None
 
     soup = BeautifulSoup(html, 'html.parser')
 
@@ -47,7 +50,6 @@ def parse_match_details(html):
     time_span = soup.find('span', attrs={'data-time-match': True})
     time_text = time_span.text.strip() if time_span else None
 
-    # Convert the time text to a datetime object and adjust for Israel Time Zone
     if time_text:
         try:
             time_dt = datetime.strptime(time_text, '%H:%M')
@@ -61,10 +63,18 @@ def parse_match_details(html):
     stadium_a = soup.find('a', href=re.compile(r'https://www\.fastscore\.com/stadium/'))
     stadium = stadium_a.text.strip() if stadium_a else None
 
-    return day, date_str, time_text_il, stadium
+    # Extract matchday
+    matchday_div = soup.find('div', class_='col text py-2')
+    matchday_text = None
+    if matchday_div:
+        matchday_search = re.search(r'Matchday (\d+)', matchday_div.text.strip())
+        if matchday_search:
+            matchday_text = matchday_search.group(1)
 
+    return day, date_str, time_text_il, stadium, matchday_text
 
 def get_all_matches(url):
+    league = extract_league_from_url(url)
     matches = []
     page = 1
 
@@ -76,7 +86,6 @@ def get_all_matches(url):
         soup = BeautifulSoup(html, 'html.parser')
         match_divs = soup.find_all('div', class_='match-grid-match')
 
-        # Stop if no match divs found on the current page
         if not match_divs:
             print(f"No matches found on page {page}, stopping.")
             break
@@ -89,42 +98,47 @@ def get_all_matches(url):
                 matches.append({
                     'home_team': home_team,
                     'away_team': away_team,
-                    'PreviewURL': preview_url
+                    'PreviewURL': preview_url,
+                    'league': league  # Add league to each match
                 })
 
-        # Check if there is a "Next" button in the pagination
         next_button = soup.find('a', rel='next')
         if not next_button:
             print(f"No 'Next' button found, stopping at page {page}.")
             break
 
-        # Move to the next page
         page += 1
 
     return matches
 
 def process_match(match):
     html = fetch(match['PreviewURL'])
-    day, date, match_time, stadium = parse_match_details(html)
+    day, date, match_time, stadium, matchday = parse_match_details(html)
 
     if "Hapoel Be'er Sheva" in match['home_team']:
         stadium = "Turner Stadium (Be'er Sheva)"
     
     city = extract_and_clean_city_name(stadium) if stadium else None
 
-    match.update({'day': day, 'date': date, 'time': match_time, 'stadium': stadium, 'city': city})
+    match.update({
+        'day': day, 
+        'date': date, 
+        'time': match_time, 
+        'stadium': stadium, 
+        'city': city, 
+        'matchday': matchday  # Add matchday to match data
+    })
     return match
 
 def process_dataframe(df):
     df = df.drop(columns=['PreviewURL'])
-    df = df.dropna(subset=['stadium'])  # Ensure rows with essential data are kept
+    df = df.dropna(subset=['stadium'])
     df['city'] = df['stadium'].apply(extract_and_clean_city_name)
     df['stadium'] = df['stadium'].apply(clean_stadium_name)
     df['date'] = pd.to_datetime(df['date'], errors='coerce', dayfirst=True).dt.strftime('%Y-%m-%d')
     df = df.sort_values(by=['date'], ascending=True)
     df = df.drop_duplicates()
     return df
-
 
 def extract_and_clean_city_name(stadium_name):
     matches = re.findall(r'\(([^()]+)\)', stadium_name)
@@ -137,25 +151,31 @@ def extract_and_clean_city_name(stadium_name):
 def clean_stadium_name(stadium_name):
     clean_name = re.sub(r'\s*\(.*', '', stadium_name).strip()
     replacements = {
-        "Teddi Malcha Stadium": "Teddy Stadium"
+        "Teddi Malcha Stadium": "Teddy Stadium",
+        "Yankele Grundman Stadium" : "Grundman Stadium"
+
     }
     return replacements.get(clean_name, clean_name)
 
 def update_database(df, engine):
-    # Connect to the database
     with engine.connect() as conn:
-        # Start a transaction
         with conn.begin():
-            # Clear the existing data from the table
             conn.execute(text("TRUNCATE TABLE football_fixtures;"))
-            
-            # Insert new data into the table
             df.to_sql('football_fixtures', conn, if_exists='append', index=False)
+
 def main():
     print("Fetching all matches...")
-    all_matches = get_all_matches(FIXTURES_URL)
+    all_matches = []
+
+    for url in FIXTURES_URL:
+        matches = get_all_matches(url)
+        if matches:
+            all_matches.extend(matches)
+        else:
+            print(f"Failed to fetch match data from {url}.")
+
     if not all_matches:
-        print("Failed to fetch match data. Exiting.")
+        print("No match data found. Exiting.")
         return
 
     print(f"Found {len(all_matches)} matches. Processing each match now...\n")

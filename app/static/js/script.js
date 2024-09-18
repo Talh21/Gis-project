@@ -140,38 +140,35 @@ function createPopupContent(matches, stadiumInfo) {
         stadium = stadiumInfo.find(info => info.city.toLowerCase().trim() === matches[0].city.toLowerCase().trim());
     }
 
-    // Safely stringify the stadium object and replace any problematic characters
+    // Safely stringify the stadium object
     const sanitizedStadium = JSON.stringify(stadium)
-        .replace(/'/g, "&apos;")  // Replace apostrophes with HTML entities
-        .replace(/"/g, '&quot;');  // Replace quotes with HTML entities
+        .replace(/'/g, "&apos;")
+        .replace(/"/g, '&quot;');
 
     let content = `<div class="popup-content">
-                    <strong>${stadiumName}</strong>
-                    </button>
+                    <strong class="stadium-name">${stadiumName}</strong>
                     <button class="info-btn" onclick='showDetailedInfo(${sanitizedStadium})'>
-                    <i class="info-icon">i</i>
+                        <i class="info-icon">i</i>
                     </button>
-                    <ul><table class="match-table">`;
+                    <ul class="match-list">`;
 
-    matches.forEach(match => {
+    matches.forEach((match, index) => {
         content += `
-            <tr>
-                <td><strong>${match.home_team} vs ${match.away_team}</strong></td>
-            </tr>
-            <tr>
-                <td>Date: ${match.date}</td>
-            </tr>
-            <tr>
-                <td>Day: ${match.day}</td>
-            </tr>
-            <tr>
-                <td>Time: ${match.time != null ? match.time : 'N/A'}</td>
-            </tr>`;
+            <li class="match-item ${index % 2 === 0 ? 'even' : 'odd'}">
+                <div class="match-title"><strong>${match.home_team} vs ${match.away_team}</strong></div>
+                <div class="match-details">League: ${match.league}</div>
+                <div class="match-details">Matchday: ${match.matchday}</div>
+                <div class="match-details">Date: ${match.date}</div>
+                <div class="match-details">Day: ${match.day}</div>
+                <div class="match-details">Time: ${match.time ? match.time : 'N/A'}</div>
+            </li>`;
     });
-    content += '</table></ul></div>';
+
+    content += '</ul></div>';
 
     return content;
 }
+
 
 
 function showDetailedInfo(stadium) {
