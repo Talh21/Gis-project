@@ -134,43 +134,6 @@ function displayGroupedMatchesOnMap(map, groupedMatches, stadiumInfo) {
 
 function createPopupContent(matches, stadiumInfo) {
     const stadiumName = matches[0].stadium || matches[0].city;
-    // Try to find stadium info by stadium name first
-    let stadium = stadiumInfo.find(info => info.stadium.toLowerCase().trim() === stadiumName.toLowerCase().trim());
-
-    // If no match is found by stadium name, try to match by city
-    if (!stadium) {
-        stadium = stadiumInfo.find(info => info.city.toLowerCase().trim() === matches[0].city.toLowerCase().trim());
-    }
-
-    let content = `<div class="popup-content"><strong>Matches at ${stadiumName}:</strong><ul>`;
-    if (stadium) {
-        content += `<li>Capacity: ${stadium.capacity || 'N/A'}</li>`;
-        content += `<li>Field Size: ${stadium.field_size || 'N/A'}</li>`;
-        content += `<li>Opened: ${stadium.opened_date || 'N/A'}</li>`;
-        content += `<li><img src="${stadium.image_url || '#'}" alt="Stadium Image" style="width: 100px; height: auto;"></li>`;
-    }
-    content += `<table class="match-table">`;
-    matches.forEach(match => {
-        content += `
-            <tr>
-                <td><strong>${match.home_team} vs ${match.away_team}</strong></td>
-            </tr>
-            <tr>
-                <td>Date: ${match.date}</td>
-            </tr>
-            <tr>
-                <td>Day: ${match.day}</td>
-            </tr>
-            <tr>
-                <td>Time: ${match.time != null ? match.time : 'N/A'}</td>
-            </tr>`;
-    });
-    content += '</table></div>';
-    return content;
-}
-
-function createPopupContent(matches, stadiumInfo) {
-    const stadiumName = matches[0].stadium || matches[0].city;
     let stadium = stadiumInfo.find(info => info.stadium.toLowerCase().trim() === stadiumName.toLowerCase().trim());
 
     // If no match is found by stadium name, try matching by city name
