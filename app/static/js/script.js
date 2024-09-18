@@ -1,6 +1,3 @@
-// Global variable to keep track of the current popup
-let currentPopup = null;
-
 function initializeCoordDict(callback) {
     const primaryDict = {};
     const cityDict = {};
@@ -157,42 +154,44 @@ function createPopupContent(matches, stadiumInfo) {
                     <ul><table class="match-table">`;
 
     matches.forEach(match => {
-        content += `<tr>
-                    <td><strong>${match.home_team} vs ${match.away_team}</strong></td>
-                    </tr>
-                    <tr>
-                    <td>Date: ${match.date}</td>
-                    </tr>
-                    <tr>
-                    <td>Day: ${match.day}</td>
-                    </tr>
-                    <tr>
-                    <td>Time: ${match.time != null ? match.time : 'N/A'}</td>
-                    </tr>`;
+        content += `
+            <tr>
+                <td><strong>${match.home_team} vs ${match.away_team}</strong></td>
+            </tr>
+            <tr>
+                <td>Date: ${match.date}</td>
+            </tr>
+            <tr>
+                <td>Day: ${match.day}</td>
+            </tr>
+            <tr>
+                <td>Time: ${match.time != null ? match.time : 'N/A'}</td>
+            </tr>`;
     });
     content += '</table></ul></div>';
 
     return content;
 }
 
-function showDetailedInfo(stadium) {
-    if (currentPopup) {
-        // Close the currently open popup
-        window.map.closePopup(currentPopup);
-    }
 
+function showDetailedInfo(stadium) {
     if (stadium) {
         // Construct the popup content
-        let popupContent = `<div class="popup-content">
-                            <img src="${stadium.image_url ? stadium.image_url : '/static/images/home_screen.jpg'}" alt="Stadium Image" style="width:100%; height:auto;">
-                            <div>
-                                <p><strong>Stadium Name:</strong> ${stadium.stadium}</p>
-                                <p><strong>Capacity:</strong> ${stadium.capacity ? stadium.capacity : 'N/A'}</p>
-                                <p><strong>Field Size:</strong> ${stadium.field_size ? stadium.field_size : 'N/A'}</p>
-                                <p><strong>Opened:</strong> ${stadium.opened_date ? stadium.opened_date : 'N/A'}</p>
-                            </div>
-                        </div>`;
+        let popupContent = `
+            <div class="popup-content">
+                <img src="${stadium.image_url ? stadium.image_url : '/static/images/home_screen.jpg'}" alt="Stadium Image" style="width:100%; height:auto;">
+                <div>
+                    <p><strong>Stadium Name:</strong> ${stadium.stadium}</p>
+                    <p><strong>Capacity:</strong> ${stadium.capacity ? stadium.capacity : 'N/A'}</p>
+                    <p><strong>Field Size:</strong> ${stadium.field_size ? stadium.field_size : 'N/A'}</p>
+                    <p><strong>Opened:</strong> ${stadium.opened_date ? stadium.opened_date : 'N/A'}</p>
+                    
+                </div>
+            </div>
+        `;
+        //<a href="${stadium.url}">More info</a>
 
+        
         // Find the stadium's coordinates in the map
         const stadiumName = stadium.stadium.toLowerCase().trim();
         const coords = window.coordDict.primary[stadiumName] || window.coordDict.city[stadium.city.toLowerCase().trim()];
@@ -201,7 +200,7 @@ function showDetailedInfo(stadium) {
             const [lat, lng] = coords;
 
             // Create a new popup on the map
-            currentPopup = L.popup()
+            const popup = L.popup()
                 .setLatLng([lat, lng])  // Set the popup location based on the stadium's coordinates
                 .setContent(popupContent)  // Set the content to include the stadium image and details
                 .openOn(window.map);  // Open the popup on the map
@@ -213,6 +212,8 @@ function showDetailedInfo(stadium) {
         console.log('Stadium information not available.');
     }
 }
+
+
 
 window.onload = () => {
     initializeCoordDict(initMap);

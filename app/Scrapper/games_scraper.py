@@ -14,7 +14,7 @@ DATABASE_URI = 'postgresql://postgres:210197@localhost/football_matches_db'
 
 
 BASE_URL = "https://www.fastscore.com"
-FIXTURES_URL = f"{BASE_URL}/israel/ligat-haal/fixtures"
+FIXTURES_URL = [f"{BASE_URL}/israel/ligat-haal/fixtures", f"{BASE_URL}/israel/liga-leumit/fixtures"]
 
 session = requests.Session()
 
