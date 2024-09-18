@@ -1,4 +1,3 @@
-// Function to initialize coordinate dictionaries
 function initializeCoordDict(callback) {
     const primaryDict = {};
     const cityDict = {};
@@ -38,34 +37,31 @@ function initMap() {
 
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {}).addTo(map);
 
-    fetch('/api/matches')
-        .then(response => {
-            if (!response.ok) {
-                throw new Error(`HTTP error! Status: ${response.status}`);
-            }
-            return response.json();
-        })
-        .then(matches => {
-            if (!window.coordDict) {
-                console.error('Coordinates dictionary is not initialized.');
-                return;
-            }
+    Promise.all([
+        fetch('/api/matches').then(response => response.json()),
+        fetch('/api/stadium-info').then(response => response.json())
+    ])
+    .then(([matches, stadiumInfo]) => {
+        if (!window.coordDict) {
+            console.error('Coordinates dictionary is not initialized.');
+            return;
+        }
 
-            const filterBtn = document.getElementById('filterBtn');
-            if (!filterBtn) {
-                console.error('Filter button not found.');
-                return;
-            }
+        const filterBtn = document.getElementById('filterBtn');
+        if (!filterBtn) {
+            console.error('Filter button not found.');
+            return;
+        }
 
-            filterBtn.addEventListener('click', () => {
-                filterMatchesAndDisplay(map, matches);
-            });
-        })
-        .catch(error => console.error('Error fetching matches:', error));
+        filterBtn.addEventListener('click', () => {
+            filterMatchesAndDisplay(map, matches, stadiumInfo);
+        });
+    })
+    .catch(error => console.error('Error fetching data:', error));
 }
 
 // Function to filter matches by date, city, or team
-function filterMatchesAndDisplay(map, matches) {
+function filterMatchesAndDisplay(map, matches, stadiumInfo) {
     const startDate = new Date(document.getElementById('startDate').value);
     const endDate = new Date(document.getElementById('endDate').value);
     const city = document.getElementById('city').value.toLowerCase().trim();
@@ -84,7 +80,7 @@ function filterMatchesAndDisplay(map, matches) {
     });
 
     const groupedMatches = groupMatchesByStadium(filteredMatches);
-    displayGroupedMatchesOnMap(map, groupedMatches);
+    displayGroupedMatchesOnMap(map, groupedMatches, stadiumInfo);
 }
 
 function groupMatchesByStadium(matches) {
@@ -99,7 +95,7 @@ function groupMatchesByStadium(matches) {
     return grouped;
 }
 
-function displayGroupedMatchesOnMap(map, groupedMatches) {
+function displayGroupedMatchesOnMap(map, groupedMatches, stadiumInfo) {
     if (!window.coordDict) {
         console.error('Coordinates dictionary is not initialized.');
         return;
@@ -123,7 +119,7 @@ function displayGroupedMatchesOnMap(map, groupedMatches) {
 
         if (coords) {
             const [lat, lng] = coords;
-            const popupContent = createPopupContent(matches);
+            const popupContent = createPopupContent(matches, stadiumInfo);
             const marker = L.marker([lat, lng]).addTo(map).bindPopup(popupContent);
             bounds.extend([lat, lng]);  // Extend map bounds to include the marker's location
         } else {
@@ -136,15 +132,22 @@ function displayGroupedMatchesOnMap(map, groupedMatches) {
     }
 }
 
+function createPopupContent(matches, stadiumInfo) {
+    const stadiumName = matches[0].stadium || matches[0].city;
+    // Try to find stadium info by stadium name first
+    let stadium = stadiumInfo.find(info => info.stadium.toLowerCase().trim() === stadiumName.toLowerCase().trim());
 
+    // If no match is found by stadium name, try to match by city
+    if (!stadium) {
+        stadium = stadiumInfo.find(info => info.city.toLowerCase().trim() === matches[0].city.toLowerCase().trim());
+    }
 
-function createPopupContent(matches) {
-    let content = `<div class="popup-content"><strong>Matches at ${matches[0].stadium || matches[0].city}:</strong><ul>`;
-    if (matches.length > 0) {
-        content += `<li>Capacity: ${matches[0].capacity || 'N/A'}</li>`;
-        content += `<li>Field Size: ${matches[0].field_size || 'N/A'}</li>`;
-        content += `<li>Opened: ${matches[0].opened_date || 'N/A'}</li>`;
-        content += `<li><img src="${matches[0].image_url || '#'}" alt="Stadium Image" style="width: 100px; height: auto;"></li>`;
+    let content = `<div class="popup-content"><strong>Matches at ${stadiumName}:</strong><ul>`;
+    if (stadium) {
+        content += `<li>Capacity: ${stadium.capacity || 'N/A'}</li>`;
+        content += `<li>Field Size: ${stadium.field_size || 'N/A'}</li>`;
+        content += `<li>Opened: ${stadium.opened_date || 'N/A'}</li>`;
+        content += `<li><img src="${stadium.image_url || '#'}" alt="Stadium Image" style="width: 100px; height: auto;"></li>`;
     }
     content += `<table class="match-table">`;
     matches.forEach(match => {
@@ -163,6 +166,46 @@ function createPopupContent(matches) {
             </tr>`;
     });
     content += '</table></div>';
+    return content;
+}
+
+function createPopupContent(matches, stadiumInfo) {
+    const stadiumName = matches[0].stadium || matches[0].city;
+    let stadium = stadiumInfo.find(info => info.stadium.toLowerCase().trim() === stadiumName.toLowerCase().trim());
+
+    // If no match is found by stadium name, try matching by city name
+    if (!stadium) {
+        stadium = stadiumInfo.find(info => info.city.toLowerCase().trim() === matches[0].city.toLowerCase().trim());
+    }
+
+    let content = `<div class="popup-content"><strong>Matches at ${stadiumName}:</strong><ul>`;
+    if (stadium) {
+        content += `<li>Capacity: ${stadium.capacity || 'N/A'}</li>`;
+        content += `<li>Field Size: ${stadium.field_size || 'N/A'}</li>`;
+        content += `<li>Opened: ${stadium.opened_date || 'N/A'}</li>`;
+        content += `<li><img src="${stadium.image_url || '#'}" alt="Stadium Image" style="width: 100px; height: auto;"></li>`;
+    } else {
+        content += `<li>Stadium information not available</li>`;
+    }
+
+    content += `<table class="match-table">`;
+    matches.forEach(match => {
+        content += `
+            <tr>
+                <td><strong>${match.home_team} vs ${match.away_team}</strong></td>
+            </tr>
+            <tr>
+                <td>Date: ${match.date}</td>
+            </tr>
+            <tr>
+                <td>Day: ${match.day}</td>
+            </tr>
+            <tr>
+                <td>Time: ${match.time != null ? match.time : 'N/A'}</td>
+            </tr>`;
+    });
+    content += '</table></div>';
+
     return content;
 }
 

@@ -26,11 +26,7 @@ def api_coordinates():
 
 @main.route('/api/matches')
 def api_matches():
-    query = text('''
-        SELECT f.*, s.field_size, s.opened_date, s.image_url, s.capacity, s.city
-        FROM football_fixtures f
-        LEFT JOIN stadium_info s ON (f.stadium = s.stadium OR f.city = s.city)
-    ''')
+    query = text('SELECT * FROM football_fixtures')
     with engine.connect() as conn:
         result = conn.execute(query)
         data = []
@@ -41,3 +37,12 @@ def api_matches():
     return jsonify(data)
 
 
+
+@main.route('/api/stadium-info')
+def api_stadium_info():
+    query = text('SELECT * FROM stadium_info')
+    with engine.connect() as conn:
+        result = conn.execute(query)
+        # Convert result to a list of dictionaries
+        data = [dict(zip(result.keys(), row)) for row in result]
+    return jsonify(data)

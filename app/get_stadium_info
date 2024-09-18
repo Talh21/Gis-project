@@ -25,8 +25,12 @@ def extract_image_url(infobox):
         if img and 'src' in img.attrs:
             src = img['src']
             if src.startswith('//'):
-                return 'https:' + src  # Handle relative URLs
-            return src
+                src = 'https:' + src  # Handle relative URLs
+            
+            # Check if URL ends with .jpg or .jpeg
+            if src.lower().endswith(('.jpg', '.jpeg')):
+                return src
+            
     return None
 
 def clean_capacity(capacity):
