@@ -1,3 +1,19 @@
+function changeMarker(){
+    var footballIcon = L.icon({
+        iconUrl: 'static/images/ball_icon.png',
+        //shadowUrl: 'leaf-shadow.png',
+    
+        iconSize:     [30, 40], // size of the icon
+        //shadowSize:   [50, 64], // size of the shadow
+        //iconAnchor:   [22, 94], // point of the icon which will correspond to marker's location
+        //shadowAnchor: [4, 62],  // the same for the shadow
+        //popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
+    });
+    return footballIcon
+
+}
+
+
 function initializeCoordDict(callback) {
     const primaryDict = {};
     const cityDict = {};
@@ -120,7 +136,7 @@ function displayGroupedMatchesOnMap(map, groupedMatches, stadiumInfo) {
         if (coords) {
             const [lat, lng] = coords;
             const popupContent = createPopupContent(matches, stadiumInfo);
-            const marker = L.marker([lat, lng]).addTo(map).bindPopup(popupContent);
+            const marker = L.marker([lat, lng], {icon:changeMarker()}).addTo(map).bindPopup(popupContent);
             bounds.extend([lat, lng]);  // Extend map bounds to include the marker's location
         } else {
             console.log(`Coordinates not found for stadium: ${stadiumName}`);
@@ -146,7 +162,7 @@ function createPopupContent(matches, stadiumInfo) {
         .replace(/"/g, '&quot;');
 
     let content = `<div class="popup-content">
-                    <strong class="stadium-name">${stadiumName}</strong>
+                    <strong class="stadium-name">${stadiumName} - ${stadium.city}</strong>
                     <button class="info-btn" onclick='showDetailedInfo(${sanitizedStadium})'>
                         <i class="info-icon">i</i>
                     </button>
@@ -184,9 +200,10 @@ function showDetailedInfo(stadium) {
                     <p><strong>Opened:</strong> ${stadium.opened_date ? stadium.opened_date : 'N/A'}</p>
                     
                 </div>
+                <a href="${stadium.url}">More info</a>
             </div>
         `;
-        //<a href="${stadium.url}">More info</a>
+        
 
         
         // Find the stadium's coordinates in the map

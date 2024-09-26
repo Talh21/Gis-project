@@ -14,7 +14,7 @@ body {
 
 /* Sidebar styling */
 .sidebar {
-    width: 300px;
+    width: 350px;
     background: linear-gradient(135deg, #ff6f61, #de4463); /* Gradient background */
     padding: 20px;
     color: white;
@@ -37,7 +37,7 @@ body {
 }
 
 .sidebar input {
-    width: 100%;
+    width: 90%;
     padding: 10px;
     margin: 5px 0 10px;
     border-radius: 5px;
@@ -52,7 +52,7 @@ body {
 
 /* Button styling */
 button {
-    width: 100%;
+    width: 97%;
     padding: 12px;
     background: linear-gradient(135deg, #36d1dc, #5b86e5); /* Gradient */
     color: white;
@@ -61,6 +61,7 @@ button {
     cursor: pointer;
     font-weight: bold;
     transition: background-color 0.3s ease, transform 0.3s ease;
+    margin-top: 10px;
 }
 
 button:hover {
@@ -76,10 +77,11 @@ button:hover {
 
 /* Popup window styling */
 .popup-content {
-    max-height: 500px;  /* Set height */
+    max-height: 400px;  /* Set height */
     width: 300px;       /* Set width */
     overflow-y: auto;   /* Scroll when overflow */
     padding: 10px;      /* Padding inside popup */
+    font-size: 16px;
 }
 
 /* Stadium name styling */
@@ -90,6 +92,7 @@ button:hover {
     margin-bottom: 10px;
     display: block;
 }
+
 
 /* Info button styling (for popups) */
 .info-btn {
@@ -109,9 +112,9 @@ button:hover {
 
 /* Match list and items */
 .match-list {
+    margin-top: 10px;
     list-style: none;
     padding: 0;
-    margin: 0;
 }
 
 .match-item {
@@ -165,7 +168,8 @@ button:hover {
     color: #555;
 }
 
-/* Pagination buttons styling */
+/*
+ Pagination buttons styling 
 .pagination {
     margin-top: 10px;
     text-align: center;
@@ -183,3 +187,4 @@ button:hover {
 .pagination a:hover {
     background-color: #005fa3;
 }
+*/
