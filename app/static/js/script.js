@@ -1,13 +1,7 @@
 function changeMarker(){
     var footballIcon = L.icon({
-        iconUrl: 'static/images/ball_icon.png',
-        //shadowUrl: 'leaf-shadow.png',
-    
-        iconSize:     [30, 40], // size of the icon
-        //shadowSize:   [50, 64], // size of the shadow
-        //iconAnchor:   [22, 94], // point of the icon which will correspond to marker's location
-        //shadowAnchor: [4, 62],  // the same for the shadow
-        //popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
+        iconUrl: 'static/images/location.png',    
+        iconSize:     [40, 40], // size of the icon
     });
     return footballIcon
 
@@ -228,7 +222,14 @@ function showDetailedInfo(stadium) {
 }
 
 
+function setMinDate() {
+    const today = new Date().toISOString().split('T')[0];  // Get the current date in YYYY-MM-DD format
+    document.getElementById('startDate').setAttribute('min', today);
+    document.getElementById('endDate').setAttribute('min', today);
+}
+
 
 window.onload = () => {
+    setMinDate();  // Set the min date for date inputs when the page loads
     initializeCoordDict(initMap);
 };

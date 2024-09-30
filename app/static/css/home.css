@@ -8,7 +8,7 @@ body, html {
 
 /* Set background image for the home screen */
 .background-container {
-    background-image: url('../images/home_screen.png'); /* Path to your image */
+    background-image: url('../images/home_screen_ron.jpg'); /* Path to your image */
     background-size: cover;    /* Ensure the image covers the entire screen */
     background-position: center; /* Center the image */
     background-repeat: no-repeat; /* Prevent repeating */
