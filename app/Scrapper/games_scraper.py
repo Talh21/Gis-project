@@ -158,10 +158,15 @@ def clean_stadium_name(stadium_name):
     return replacements.get(clean_name, clean_name)
 
 def update_database(df, engine):
-    with engine.connect() as conn:
-        with conn.begin():
-            conn.execute(text("TRUNCATE TABLE football_fixtures;"))
-            df.to_sql('football_fixtures', conn, if_exists='append', index=False)
+    if df.empty:
+        print("Error: DataFrame is empty. No data to update.")
+        return
+   
+    else:
+        with engine.connect() as conn:
+            with conn.begin():
+                conn.execute(text("TRUNCATE TABLE football_fixtures;"))
+                df.to_sql('football_fixtures', conn, if_exists='append', index=False)
 
 def main():
     print("Fetching all matches...")

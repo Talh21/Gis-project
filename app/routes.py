@@ -10,8 +10,8 @@ engine = create_engine(DATABASE_URI)
 def home():
     return render_template('home.html')
 
-@main.route('/matchmap')
-def matchmap():
+@main.route('/footymap')
+def footymap():
     return render_template('index.html')
 
 
