@@ -8,28 +8,28 @@ body, html {
 
 /* Set background image for the home screen */
 .background-container {
-    background-image: url('../images/home_screen_fixed.jpg'); /* Path to your image */
+    background-image: url('../images/home_screen_image.jpg');
     background-size: cover;    /* Ensure the image covers the entire screen */
-    background-position: center; /* Center the image */
+    background-position: center;
     background-repeat: no-repeat; /* Prevent repeating */
-    width: 100vw;  /* Full width of the viewport */
-    height: 100vh; /* Full height of the viewport */
+    width: 100vw;  
+    height: 100vh; 
     display: flex;
-    justify-content: center; /* Horizontally center the button */
-    align-items: center;     /* Vertically center the button */
+    justify-content: center; 
+    align-items: center; 
 }
 
 /* Style the start button */
 .start-button {
-    padding: 20px 50px; /* Bigger padding for a larger button */
-    font-size: 24px; /* Increase the font size */
-    color: rgba(255, 255, 255, 0.9); /* White-ish color */
-    background-color: rgba(255, 255, 255, 0.3); /* Semi-transparent white background */
-    border: 2px solid rgba(255, 255, 255, 0.8); /* White border */
-    border-radius: 12px; /* Rounded corners */
+    padding: 20px 50px; 
+    font-size: 24px; 
+    color: rgba(255, 255, 255, 0.9); 
+    background-color: rgba(255, 255, 255, 0.3); 
+    border: 2px solid rgba(255, 255, 255, 0.8); 
+    border-radius: 12px; 
     cursor: pointer;
     transition: background-color 0.3s ease, color 0.3s ease;
-    font-weight: bold; /* Bold text */
+    font-weight: bold; 
 }
 
 

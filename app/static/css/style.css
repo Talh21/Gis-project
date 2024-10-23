@@ -3,7 +3,7 @@ body {
     margin: 0;
     padding: 0;
     height: 100vh;
-    font-family: 'Roboto', sans-serif; /* Modern look */
+    font-family: 'Roboto', sans-serif;
 }
 
 /* Flex container for sidebar and map */
@@ -15,11 +15,11 @@ body {
 /* Sidebar styling */
 .sidebar {
     width: 350px;
-    background: linear-gradient(135deg, #ff6f61, #de4463); /* Gradient background */
+    background: linear-gradient(135deg, #ff6f61, #de4463);
     padding: 20px;
     color: white;
-    box-shadow: 2px 0px 10px rgba(0, 0, 0, 0.2); /* Shadow for depth */
-    font-weight: bold; /* Bold text for contrast */
+    box-shadow: 2px 0px 10px rgba(0, 0, 0, 0.2);
+    font-weight: bold; 
 }
 
 .sidebar h2 {
@@ -33,7 +33,7 @@ body {
     display: block;
     margin-top: 10px;
     font-weight: bold;
-    color: #ffebcd; /* Slightly off-white color */
+    color: #ffebcd; 
 }
 
 .sidebar input {
@@ -42,19 +42,19 @@ body {
     margin: 5px 0 10px;
     border-radius: 5px;
     border: 1px solid #fff;
-    background-color: rgba(255, 255, 255, 0.2); /* Light transparent background */
+    background-color: rgba(255, 255, 255, 0.2);
     color: white;
 }
 
 .sidebar input::placeholder {
-    color: #ffe4e1; /* Soft placeholder color */
+    color: #ffe4e1;
 }
 
 /* Button styling */
 button {
     width: 97%;
     padding: 12px;
-    background: linear-gradient(135deg, #36d1dc, #5b86e5); /* Gradient */
+    background: linear-gradient(135deg, #36d1dc, #5b86e5);
     color: white;
     border: none;
     border-radius: 8px;
@@ -65,8 +65,8 @@ button {
 }
 
 button:hover {
-    background: linear-gradient(135deg, #5b86e5, #36d1dc); /* Invert gradient on hover */
-    transform: translateY(-3px); /* Lift effect */
+    background: linear-gradient(135deg, #5b86e5, #36d1dc); 
+    transform: translateY(-3px);
 }
 
 /* Map container */
@@ -77,10 +77,10 @@ button:hover {
 
 /* Popup window styling */
 .popup-content {
-    max-height: 400px;  /* Set height */
-    width: 300px;       /* Set width */
+    max-height: 400px;  
+    width: 300px;      
     overflow-y: auto;   /* Scroll when overflow */
-    padding: 10px;      /* Padding inside popup */
+    padding: 10px;     
     font-size: 16px;
 }
 
@@ -146,7 +146,7 @@ button:hover {
     color: #555;
 }
 
-/* Match table styling (if you're using tables) */
+/* Match table styling */
 .match-table {
     width: 100%;
     border-collapse: collapse;
@@ -167,24 +167,3 @@ button:hover {
     font-weight: bold;
     color: #555;
 }
-
-/*
- Pagination buttons styling 
-.pagination {
-    margin-top: 10px;
-    text-align: center;
-}
-
-.pagination a {
-    padding: 5px 10px;
-    margin: 0 5px;
-    background-color: #0077cc;
-    color: white;
-    text-decoration: none;
-    border-radius: 5px;
-}
-
-.pagination a:hover {
-    background-color: #005fa3;
-}
-*/

@@ -138,7 +138,7 @@ function displayGroupedMatchesOnMap(map, groupedMatches, stadiumInfo) {
     });
 
     if (bounds.isValid()) {
-        map.fitBounds(bounds);  // Adjust map view to fit all markers within bounds
+        map.fitBounds(bounds);
     }
 }
 
